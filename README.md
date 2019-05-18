@@ -20,3 +20,6 @@ May 16, 2019
 Devin - Began work on the classes
       - Added skeletons for the files "classes" and "playingField"
 James - Edited ReadMe
+
+May 18, 2019
+Devin - made constructor for monkeys and the ability to drag the mouse to create new monkeys in specified locations
