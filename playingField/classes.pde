@@ -1,7 +1,7 @@
 import java.util.*;
 
 class monkey {
-  
+
   float x, y, w, h;
   monkey(float xPos, float yPos, float wid, float hei) {
     x = xPos;
@@ -9,7 +9,7 @@ class monkey {
     w = wid;
     h = hei;
   }
-  
+
   void display() {
     fill(255);
     ellipse(x, y, w, h);
@@ -30,24 +30,27 @@ class path {
       w = wid;
       h = hei;
     }
-    
+
     void display() {
       fill(0);
       rectMode(CENTER);
       rect(x, y, w, h);
     }
   }
-  
+
   float startX, startY, endX, endY;
   ArrayList<tile> tiles;
-  
+
   path(float x1, float y1, float x2, float y2) {
     startX = x1;
     startY = y1;
     endX = x2;
     endY = y2;
+    tiles = new ArrayList<tile>();
+    tiles.add(new tile(startX, startY, 20, 20));
+    tiles.add(new tile(endX, endY, 20, 20));
   }
-  
+
   void display() {
     for (tile t : tiles) {
       t.display();
