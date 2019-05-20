@@ -1,7 +1,7 @@
 import java.util.*;
 
 ArrayList<monkey> monkeys;
-ArrayList<balloon> balloons;
+ArrayList<balloons> balloons;
 path p;
 boolean clickedOnLogo;
 

@@ -21,7 +21,7 @@ class monkey {
 
 
 
-class balloons {
+class allBalloons {
   
   ArrayList<balloon> balloons;
   
@@ -42,10 +42,14 @@ class balloons {
       rect(x, y, w, h);
     }
     
-  }
+  }//balloon end
    
-  balloons() {
+  allBalloons(float x2, float y2) {
+    balloons = new ArrayList<>();
+    
   }
+  
+  float x, y;
   
   void display() {
     for (balloon b : balloons) {
