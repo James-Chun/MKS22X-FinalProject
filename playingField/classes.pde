@@ -22,6 +22,6 @@ class balloon {
 }
 
 class path {
-  path() {
+  path(float startX, float startY, float endX, float endY) {
   }
 }
