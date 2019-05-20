@@ -16,8 +16,33 @@ class monkey {
   }
 }
 
-class balloon {
-  balloon() {
+class balloons {
+  
+  ArrayList<balloon> balloons;
+  
+  class balloon{
+    
+    float x, y, w, h;
+    
+    balloon(){
+      
+    }
+    
+    void display() {
+      fill(0);
+      rectMode(CENTER);
+      rect(x, y, w, h);
+    }
+    
+  }
+   
+  balloons() {
+  }
+  
+  void display() {
+    for (balloon b : balloons) {
+      b.display();
+    }
   }
 }
 
