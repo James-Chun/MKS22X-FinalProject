@@ -28,25 +28,27 @@ class allBalloons {
   class balloon{
     
     float x, y, w, h;
+    PImage img;
     
     balloon(float x1, float y1, float width, float height){
       x = x1;
       y = y1;
       w = width;
       h = height;
+      img = loadImage("redBalloon.jpg");
     }
     
     void display() {
       fill(0);
       rectMode(CENTER);
-      rect(x, y, w, h);
+      image(img, x, y, w, h);
     }
     
   }//balloon end
    
   allBalloons(float x2, float y2) {
-    balloons = new ArrayList<>();
-    
+    balloons = new ArrayList<balloon>();
+    balloons.add(new balloon(x2, y2, 10, 10));
   }
   
   float x, y;

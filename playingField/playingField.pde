@@ -1,7 +1,7 @@
 import java.util.*;
 
 ArrayList<monkey> monkeys;
-ArrayList<balloons> balloons;
+ArrayList<allBalloons> balloons;
 path p;
 boolean clickedOnLogo;
 
@@ -18,7 +18,7 @@ void setup() {
 void initialize() {
   clickedOnLogo = false;
   monkeys = new ArrayList<monkey>();
-  balloons = new ArrayList<balloon>();
+  balloons = new ArrayList<allBalloons>();
   p = new path(100, 100, 400, 400);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
 }
