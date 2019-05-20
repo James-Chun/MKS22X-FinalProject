@@ -2,22 +2,24 @@ import java.util.*;
 
 ArrayList<monkey> monkeys;
 ArrayList<balloon> balloons;
-ArrayList<path> path;
+path p;
 boolean clickedOnLogo;
 
 void setup() {
   size(1800, 1000);
   initialize();
+  println("yes");
   for (int i = 0; i < monkeys.size(); i++) {
     monkeys.get(i).display();
   }
+  p.display();
 }
 
 void initialize() {
   clickedOnLogo = false;
   monkeys = new ArrayList<monkey>();
   balloons = new ArrayList<balloon>();
-  path = new ArrayList<path>();
+  p = new path(100, 100, 400, 400);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
 }
 
