@@ -19,7 +19,7 @@ void initialize() {
   clickedOnLogo = false;
   monkeys = new ArrayList<monkey>();
   balloons = new ArrayList<balloon>();
-  p = new path(100, 100, 400, 400);
+  p = new path(100, 100, 400, 400, 500);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
 }
 
