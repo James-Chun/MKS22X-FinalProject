@@ -1,5 +1,7 @@
 import java.util.*;
 
+
+//For all classes: x - x-coord, y - y-coord, w - width of image, h - height of image.
 class monkey {
 
   float x, y, w, h;
@@ -16,6 +18,9 @@ class monkey {
   }
 }
 
+
+
+
 class balloons {
   
   ArrayList<balloon> balloons;
@@ -24,8 +29,11 @@ class balloons {
     
     float x, y, w, h;
     
-    balloon(){
-      
+    balloon(float x1, float y1, float width, float height){
+      x = x1;
+      y = y1;
+      w = width;
+      h = height;
     }
     
     void display() {
@@ -45,6 +53,9 @@ class balloons {
     }
   }
 }
+
+
+
 
 class path {
   class tile {
