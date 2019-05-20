@@ -23,3 +23,8 @@ James - Edited ReadMe
 
 May 18, 2019
 Devin - made constructor for monkeys and the ability to drag the mouse to create new monkeys in specified locations
+
+May 20, 2019
+James - Began work on the balloon class
+      - Balloons work the same as the path with a subclass for individual balloons (for path the individual units are called tiles)
+      
