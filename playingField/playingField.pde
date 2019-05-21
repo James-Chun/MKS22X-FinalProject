@@ -21,11 +21,15 @@ void initialize() {
   balloons = new ArrayList<allBalloons>();
   p = new path(100, 100, 400, 400);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
+  balloons.add(new allBalloons(300,300));
 }
 
 void draw() {
   for (int i = 1; i < monkeys.size(); i++) {
     monkeys.get(i).display();
+  }
+  for (int i = 0; i < balloons.size(); i++){
+    balloons.get(i).display();
   }
 }
 

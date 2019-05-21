@@ -35,7 +35,7 @@ class allBalloons {
       y = y1;
       w = width;
       h = height;
-      img = loadImage("redBalloon.jpg");
+      img = loadImage("balloon.jpg");
     }
     
     void display() {
@@ -48,7 +48,7 @@ class allBalloons {
    
   allBalloons(float x2, float y2) {
     balloons = new ArrayList<balloon>();
-    balloons.add(new balloon(x2, y2, 10, 10));
+    balloons.add(new balloon(x2, y2, 50, 50));
   }
   
   float x, y;
