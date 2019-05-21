@@ -35,7 +35,7 @@ class allBalloons {
       y = y1;
       w = width;
       h = height;
-      img = loadImage("balloon.jpg");
+      img = loadImage("balloon.png");
     }
     
     void display() {
@@ -48,7 +48,7 @@ class allBalloons {
    
   allBalloons(float x2, float y2) {
     balloons = new ArrayList<balloon>();
-    balloons.add(new balloon(x2, y2, 50, 50));
+    balloons.add(new balloon(x2, y2, 70, 80));
   }
   
   float x, y;
@@ -91,6 +91,9 @@ class path {
     tiles = new ArrayList<tile>();
     tiles.add(new tile(startX, startY, 20, 20));
     tiles.add(new tile(endX, endY, 20, 20));
+    for (float i = startX; i < endX; i+=20){
+      tiles.add(new tile(i,100,20,20));
+    }
   }
 
   void display() {
