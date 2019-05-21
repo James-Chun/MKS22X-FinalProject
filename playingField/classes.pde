@@ -61,7 +61,7 @@ class path {
   }
 
   boolean addTile(int x, int y) {
-    if (field[x][y] == 0) {
+    if (x < field.length && y < field[0].length && x > 0 && y > 0 &&field[x][y] == 0) {
       field[x][y] = 1;
       tiles.addLast(new tile(x, y, 20, 20));
       totalTiles--;
@@ -71,7 +71,7 @@ class path {
   }
 
   boolean removeTile(int x, int y) {
-    if (field[x][y] == 1) {
+    if (x < field.length && y < field[0].length && x > 0 && y > 0 && field[x][y] == 1) {
       field[x][y] = 0;
       tiles.removeLast();
       totalTiles++;
@@ -88,21 +88,24 @@ class path {
   }
 
   void makePath() {
-    makePath(startX, endX);
+    makePath(startX, startY, (int) random(50), 0);
   }
 
-  boolean makePath(float x, float y) {
+  void makePath(float x, float y, int straightPaths, int direction) {
     int[][] moves = new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-    if (totalTiles == 0 && x == endX && y == endY) {
-      return true;
+    if (x >= width) {
+      return;
     }
-    for (int[] i : moves) {
-      if (addTile((int)x, (int) y) && makePath(x + i[0], y + i[1])) {
-        return true;
+    println(straightPaths);
+    if (addTile((int)x, (int)y)) {
+      println("added");
+      if (straightPaths == 0) {
+        println("ran1");
+        makePath(x + moves[direction][0], y + moves[direction][1], (int) random(50), (int) random(4));
       } else {
-        removeTile((int)x, (int) y);
+        println("ran2");
+        makePath(x + moves[direction][0], y + moves[direction][1], straightPaths--, direction);
       }
     }
-    return false;
   }
 }
