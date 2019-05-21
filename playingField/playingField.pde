@@ -21,7 +21,7 @@ void initialize() {
   balloons = new ArrayList<allBalloons>();
   p = new path(100, 100, 400, 100);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
-  balloons.add(new allBalloons(300,300));
+  balloons.add(new allBalloons(50,50));
 }
 
 void draw() {
