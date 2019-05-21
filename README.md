@@ -28,3 +28,8 @@ May 20, 2019
 James - Began work on the balloon class
       - Balloons work the same as the path with a subclass for individual balloons (for path the individual units are called tiles)
       - Balloons should display an image of a balloon
+Devin - 
+
+May 21, 2019
+James - Note: Balloon coord is on top left of the image
+      - 
