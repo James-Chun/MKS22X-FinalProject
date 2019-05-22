@@ -14,6 +14,16 @@ class monkey {
     fill(255);
     ellipse(x, y, w, h);
   }
+  
+  void touchingPath() {
+  }
+  
+  boolean isBetween(int x, int y, int x1, int y1, int x2, int y2) {
+    if (dist(x, y, x1, y1) + dist(x, y, x2, y2) == dist(x1, y1, x2, y2)) {
+      return true;
+    }
+    return false;
+  }
 }
 
 class balloon {
