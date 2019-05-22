@@ -75,30 +75,7 @@ class allBalloons {
 
 class path {
 
-<<<<<<< HEAD
-  float startX, startY, endX, endY;
-  ArrayList<tile> tiles;
 
-  path(float x1, float y1, float x2, float y2) {
-    startX = x1;
-    startY = y1;
-    endX = x2;
-    endY = y2;
-    tiles = new ArrayList<tile>();
-    tiles.add(new tile(startX, startY, 20, 20));
-    tiles.add(new tile(endX, endY, 20, 20));
-    for (float i = startX; i < endX; i+=20){
-      tiles.add(new tile(i,100,20,20));
-    }
-  }
-
-  void display() {
-    for (tile t : tiles) {
-      t.display();
-    }
-  }
-}
-=======
   int[][] randPoints;
 
   path(int totalPoints) {
@@ -120,5 +97,12 @@ class path {
       }
     }
   }
+  
+  int[] getStart(){
+    return randPoints[0];
+  }
+  
+  int[] getEnd(){
+    return randPoints[randPoints.length-1];
+  }
 }
->>>>>>> d5021da4d03590d76f303faf13a8438e82489ec4
