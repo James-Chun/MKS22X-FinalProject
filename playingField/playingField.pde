@@ -6,9 +6,8 @@ path p;
 boolean clickedOnLogo;
 
 void setup() {
-  size(1800, 1000);
+  size(1000, 800);
   initialize();
-  println("yes");
   for (int i = 0; i < monkeys.size(); i++) {
     monkeys.get(i).display();
   }
@@ -19,7 +18,7 @@ void initialize() {
   clickedOnLogo = false;
   monkeys = new ArrayList<monkey>();
   balloons = new ArrayList<balloon>();
-  p = new path(100, 100, 400, 400, 500);
+  p = new path(10);
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
 }
 
