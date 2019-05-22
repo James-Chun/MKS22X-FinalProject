@@ -23,8 +23,21 @@ void initialize() {
 }
 
 void draw() {
+  float easing = 1.0;
+  float x = monkeys.get(0).getX();
+  float y = monkeys.get(0).getY();
   for (int i = 1; i < monkeys.size(); i++) {
     monkeys.get(i).display();
+  }
+  if (clickedOnLogo) {
+    float targetX = mouseX;
+    float dx = targetX - x;
+    x += dx * easing;
+    float targetY = mouseY;
+  float dy = targetY - y;
+  y += dy * easing;
+  
+  ellipse(x, y, 66, 66);
   }
 }
 
