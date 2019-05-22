@@ -70,8 +70,10 @@ class allBalloons {
   }
   
   void move(){
-    for (int i=0;i<balloons.size();i++){
-      
+    for (int b=0;b<balloons.size();b++){
+      for (int p=0;p<randPoints.length;p++){
+        
+      }
     }
   }
 }
@@ -80,7 +82,6 @@ class allBalloons {
 
 
 class path {
-
 
   int[][] randPoints;
 
@@ -105,7 +106,6 @@ class path {
       randPoints[r][1] = (int) random(height);
     }
   }
-<<<<<<< HEAD
   
   int[] getStart(){
     return randPoints[0];
@@ -114,6 +114,8 @@ class path {
   int[] getEnd(){
     return randPoints[randPoints.length-1];
   }
-=======
->>>>>>> a80fd75616c88dd2d42f955be6bb9cf3ec5c21d1
+  
+  int[] getNextPoint(int index){
+    return randPoints[index];
+  }
 }
