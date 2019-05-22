@@ -68,6 +68,12 @@ class allBalloons {
       b.display();
     }
   }
+  
+  void move(){
+    for (int i=0;i<balloons.size();i++){
+      
+    }
+  }
 }
 
 
@@ -80,10 +86,10 @@ class path {
 
   path(int totalPoints) {
     randPoints = new int[totalPoints][2];
+    makePath();
   }
 
   void display() {
-    makePath();
     for (int i = 1; i < randPoints.length; i++) {
       //println(Arrays.toString(randPoints[i]));
       line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
