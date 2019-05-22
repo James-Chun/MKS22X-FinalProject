@@ -6,7 +6,7 @@ path p;
 boolean clickedOnLogo;
 
 void setup() {
-  size(1000, 800);
+  size(1500, 800);
   initialize();
   for (int i = 0; i < monkeys.size(); i++) {
     monkeys.get(i).display();
