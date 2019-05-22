@@ -16,6 +16,16 @@ class monkey {
     fill(255);
     ellipse(x, y, w, h);
   }
+  
+  void touchingPath() {
+  }
+  
+  boolean isBetween(int x, int y, int x1, int y1, int x2, int y2) {
+    if (dist(x, y, x1, y1) + dist(x, y, x2, y2) == dist(x1, y1, x2, y2)) {
+      return true;
+    }
+    return false;
+  }
 }
 
 
@@ -64,22 +74,8 @@ class allBalloons {
 
 
 class path {
-  class tile {
-    float x, y, w, h;
-    tile(float x1, float y1, float wid, float hei) {
-      x = x1;
-      y = y1;
-      w = wid;
-      h = hei;
-    }
 
-    void display() {
-      fill(0);
-      rectMode(CENTER);
-      rect(x, y, w, h);
-    }
-  }
-
+<<<<<<< HEAD
   float startX, startY, endX, endY;
   ArrayList<tile> tiles;
 
@@ -102,3 +98,27 @@ class path {
     }
   }
 }
+=======
+  int[][] randPoints;
+
+  path(int totalPoints) {
+    randPoints = new int[totalPoints][2];
+  }
+
+  void display() {
+    makePath();
+    for (int i = 1; i < randPoints.length; i++) {
+      //println(Arrays.toString(randPoints[i]));
+      line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
+    }
+  }
+
+  void makePath() {
+    for (int r = 0; r < randPoints.length; r++) {
+      for (int c = 0; c < randPoints[0].length; c++) {
+        randPoints[r][c] = (int) random(800);
+      }
+    }
+  }
+}
+>>>>>>> d5021da4d03590d76f303faf13a8438e82489ec4
