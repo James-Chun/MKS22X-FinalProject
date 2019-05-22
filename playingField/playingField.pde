@@ -20,7 +20,8 @@ void initialize() {
   balloons = new ArrayList<allBalloons>();
   p = new path(10); //number of points on the path
   monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
-  balloons.add(new allBalloons(p.getStart()[0],p.getStart()[1]));
+  balloons.add(new allBalloons(p.getStart()[0]-35,p.getStart()[1]-40));
+  //balloons.add(new allBalloons(100,100));
 }
 
 void draw() {
