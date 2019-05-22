@@ -97,12 +97,15 @@ class path {
   }
 
   void makePath() {
+    int spacing = (int) width / randPoints.length;
     for (int r = 0; r < randPoints.length; r++) {
-      for (int c = 0; c < randPoints[0].length; c++) {
-        randPoints[r][c] = (int) random(800);
-      }
+      randPoints[r][0] = (int) random(spacing * r, spacing * (r+1));
+    }
+    for (int r = 0; r < randPoints.length; r++) {
+      randPoints[r][1] = (int) random(height);
     }
   }
+<<<<<<< HEAD
   
   int[] getStart(){
     return randPoints[0];
@@ -111,4 +114,6 @@ class path {
   int[] getEnd(){
     return randPoints[randPoints.length-1];
   }
+=======
+>>>>>>> a80fd75616c88dd2d42f955be6bb9cf3ec5c21d1
 }
