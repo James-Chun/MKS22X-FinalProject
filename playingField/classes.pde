@@ -9,9 +9,18 @@ class monkey {
     w = wid;
     h = hei;
   }
-
+  
+  float getX() {
+    return x;
+  }
+  
+  float getY() {
+    return y;
+  }
+  
   void display() {
     fill(255);
+    strokeWeight(1);
     ellipse(x, y, w, h);
   }
   
@@ -43,6 +52,7 @@ class path {
     makePath();
     for (int i = 1; i < randPoints.length; i++) {
       //println(Arrays.toString(randPoints[i]));
+      strokeWeight(20);
       line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
     }
   }
