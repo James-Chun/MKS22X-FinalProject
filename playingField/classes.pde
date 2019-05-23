@@ -48,13 +48,15 @@ class allBalloons {
     
     float x, y, w, h;
     PImage img;
+  int point;
     
-    balloon(float x1, float y1, float width, float height){
+    balloon(float x1, float y1, float width, float height, int p){
       x = x1;
       y = y1;
       w = width;
       h = height;
       img = loadImage("balloon.png");
+      point = p;
     }
     
     void display() {
@@ -70,30 +72,36 @@ class allBalloons {
       y = newY;
     }
     
+    int getPoint(){
+      return point;
+    }
+    void setPoint(int newPoint){
+      point = newPoint;
+    }
+    
+    
   }//balloon end
    
   allBalloons(float x2, float y2) {
     balloons = new ArrayList<balloon>();
-    balloons.add(new balloon(x2, y2, 70, 80));
+    balloons.add(new balloon(x2, y2, 70, 80, 0));
   }
   
-  float x, y;
   
   void display() {
     for (balloon b : balloons) {
       b.display();
     }
-  }
+  }   
   
   
     
-    void move(float newX, float newY){
-      for (int i=0;i<balloons.size();i++){
-        balloons.get(i).setX(newX);
-        balloons.get(i).setY(newY);
-      }
+  void move(float newX, float newY){
+    for (int i=0;i<balloons.size();i++){
+      balloons.get(i).setX(newX);
+      balloons.get(i).setY(newY);
     }
-  
+  }
 }
 
 
