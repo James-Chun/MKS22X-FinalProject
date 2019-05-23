@@ -62,15 +62,25 @@ void draw() {
 //^^^^^^^^^^
 //----------------------------------------------------------------------------------------
 
-void mousePressed() {
-  if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
-    clickedOnLogo = true;
-  }
-}
 
-void mouseReleased() {
-  if (clickedOnLogo) {
-    monkeys.add(new monkey(mouseX, mouseY, 40, 40));
-    clickedOnLogo = false;
-  }
+//----------------------------------------------------------------------------------------
+//vvvvvvvvvv
+void mousePressed() {
+    if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
+        clickedOnLogo = true;
+    }
 }
+//^^^^^^^^^^
+//----------------------------------------------------------------------------------------
+
+
+//----------------------------------------------------------------------------------------
+//vvvvvvvvvv
+void mouseReleased() {
+    if (clickedOnLogo) {
+        monkeys.add(new monkey(mouseX, mouseY, 40, 40));
+        clickedOnLogo = false;
+    }
+}
+//^^^^^^^^^^
+//----------------------------------------------------------------------------------------
