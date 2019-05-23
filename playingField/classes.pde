@@ -66,6 +66,9 @@ class allBalloons {
     void setX(float newX){
       x = newX;
     }
+    void setY(float newY){
+      y = newY;
+    }
     
   }//balloon end
    
@@ -84,9 +87,10 @@ class allBalloons {
   
   
     
-    void move(){
+    void move(float newX, float newY){
       for (int i=0;i<balloons.size();i++){
-        balloons.get(i).setX(100);
+        balloons.get(i).setX(newX);
+        balloons.get(i).setY(newY);
       }
     }
   
@@ -131,7 +135,7 @@ class path {
   }
   
   int[] getNextPoint(int index){
-    return randPoints[index];
+    return randPoints[index+1];
   }
   
   boolean hasNextPoint(int index){

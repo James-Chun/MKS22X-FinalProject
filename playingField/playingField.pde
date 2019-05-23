@@ -6,6 +6,7 @@ path p;
 boolean clickedOnLogo;
 
 void setup() {
+  frameRate(60);
   size(1500, 800);
   initialize();
 }
@@ -23,9 +24,14 @@ void initialize() {
 void draw() {
   background(255);
   p.display();
+  int temp = 0;
   for (int i = 0; i < balloons.size(); i++){
     balloons.get(i).display();
-    balloons.get(i).move();
+  }
+  if (frameCount%45==0){
+    if (p.hasNextPoint(temp)){
+      balloons.get(0).move(p.getNextPoint(temp)[0],p.getNextPoint(temp)[1]);
+    }
   }
   for (int i = 1; i < monkeys.size(); i++) {
     monkeys.get(i).display();
