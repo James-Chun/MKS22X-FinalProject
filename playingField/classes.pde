@@ -1,5 +1,7 @@
 import java.util.*;
 
+
+//For all classes: x - x-coord, y - y-coord, w - width of image, h - height of image.
 class monkey {
 
   float x, y, w, h;
@@ -19,7 +21,7 @@ class monkey {
   }
   
   void display() {
-    fill(255);
+    fill(255,0,255);
     strokeWeight(1);
     ellipse(x, y, w, h);
   }
@@ -35,10 +37,60 @@ class monkey {
   }
 }
 
-class balloon {
-  balloon() {
+
+
+
+class allBalloons {
+  
+  ArrayList<balloon> balloons;
+  
+  class balloon{
+    
+    float x, y, w, h;
+    PImage img;
+    
+    balloon(float x1, float y1, float width, float height){
+      x = x1;
+      y = y1;
+      w = width;
+      h = height;
+      img = loadImage("balloon.png");
+    }
+    
+    void display() {
+      fill(0);
+      rectMode(CENTER);
+      image(img, x, y, w, h);
+    }
+    
+  }//balloon end
+   
+  allBalloons(float x2, float y2) {
+    balloons = new ArrayList<balloon>();
+    balloons.add(new balloon(x2, y2, 70, 80));
   }
+  
+  float x, y;
+  
+  void display() {
+    for (balloon b : balloons) {
+      b.display();
+    }
+  }
+  
+  void move(path p){
+    int i = 0;
+    for (int b=0;b<balloons.size();b++){
+      while (p.hasNextPoint(i)){
+        
+      }
+    }
+  }
+  
 }
+
+
+
 
 class path {
 
@@ -46,10 +98,10 @@ class path {
 
   path(int totalPoints) {
     randPoints = new int[totalPoints][2];
+    makePath();
   }
 
   void display() {
-    makePath();
     for (int i = 1; i < randPoints.length; i++) {
       //println(Arrays.toString(randPoints[i]));
       strokeWeight(20);
@@ -65,5 +117,21 @@ class path {
     for (int r = 0; r < randPoints.length; r++) {
       randPoints[r][1] = (int) random(height);
     }
+  }
+  
+  int[] getStart(){
+    return randPoints[0];
+  }
+  
+  int[] getEnd(){
+    return randPoints[randPoints.length-1];
+  }
+  
+  int[] getNextPoint(int index){
+    return randPoints[index];
+  }
+  
+  boolean hasNextPoint(int index){
+    return index<randPoints.length-1;
   }
 }
