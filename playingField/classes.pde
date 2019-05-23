@@ -69,11 +69,13 @@ class allBalloons {
     }
   }
   
-  void move(){
+  void move(path p){
+    int progress = 0;
     for (int b=0;b<balloons.size();b++){
-      for (int p=0;p<randPoints.length;p++){
-        
+      if (p.hasNextPoint(progress)){
+        translate(p.getNextPoint(progress)[0], p.getNextPoint(progress)[1]);
       }
+      progress++;
     }
   }
 }
@@ -116,6 +118,9 @@ class path {
   }
   
   int[] getNextPoint(int index){
-    return randPoints[index];
+    return randPoints[index+1];
+  }
+  boolean hasNextPoint(int index){
+    return index < randPoints.length-1;
   }
 }
