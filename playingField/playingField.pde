@@ -25,6 +25,7 @@ void draw() {
   p.display();
   for (int i = 0; i < balloons.size(); i++){
     balloons.get(i).display();
+    balloons.get(i).move();
   }
   for (int i = 1; i < monkeys.size(); i++) {
     monkeys.get(i).display();

@@ -63,6 +63,10 @@ class allBalloons {
       image(img, x, y, w, h);
     }
     
+    void setX(float newX){
+      x = newX;
+    }
+    
   }//balloon end
    
   allBalloons(float x2, float y2) {
@@ -78,14 +82,13 @@ class allBalloons {
     }
   }
   
-  void move(path p){
-    int i = 0;
-    for (int b=0;b<balloons.size();b++){
-      while (p.hasNextPoint(i)){
-        
+  
+    
+    void move(){
+      for (int i=0;i<balloons.size();i++){
+        balloons.get(i).setX(100);
       }
     }
-  }
   
 }
 
