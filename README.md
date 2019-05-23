@@ -32,6 +32,14 @@ Devin - Worked on the random path generator
 
 May 21, 2019
 James - Note: Balloon coord is on top left of the image
-      - 
+      - Worked balloon so that they start at the beginning of the path
+      
 Devin - Worked on the random path generator
       - Consulted Mr. Konstantinovich on how to make algorithm for random path
+      
+May 22, 2019
+James - Worked more on balloons and getting them to follow the path
+      
+Devin - Finished the random path generator
+      - Started work on monkey (tower) placement [making sure the monkeys don't overlap with the path]
+      
