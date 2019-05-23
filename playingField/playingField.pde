@@ -48,17 +48,18 @@ void draw() {
         
         currentBalloon.display();
         
-        if ( frameCount%45==0 && p.hasNextPoint(currentBalloon.getPointOnLine(i)) ){
+        if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPointOnLine(i)) ){
           
-            float thisX = p.getPoint( currentBalloon.getPointOnLine(i) )[0];
-            float thisY = p.getPoint( currentBalloon.getPointOnLine(i) )[1];
+            float thisX = currentBalloon.getX(i);
+            float thisY = currentBalloon.getY(i);
             float nextX = p.getNextPoint( currentBalloon.getPointOnLine(i) )[0];
             float nextY = p.getNextPoint( currentBalloon.getPointOnLine(i) )[1];
           
             //currentBalloon.move( nextX , nextY ); //each balloon uses its own point tracker to find the coords of the next point and moves to that point
-            currentBalloon.move( thisX + (nextX - thisX)/(dist(thisX,thisY,nextX,nextY)) , thisY + (nextY - thisY)/(dist(thisX,thisY,nextX,nextY)) );
-            currentBalloon.setPoint( i, currentBalloon.getPointOnLine(i)+1 );
-            
+            currentBalloon.move(thisX + (nextX - thisX)/(dist(thisX,thisY,nextX,nextY)) ,thisY + (nextY - thisY)/(dist(thisX,thisY,nextX,nextY)) );
+            if ( thisX >= nextX && thisY >= nextY ){
+                currentBalloon.setPoint( i, currentBalloon.getPointOnLine(i)+1 );
+            }
             
         }
         

@@ -85,6 +85,13 @@ class allBalloons {
         void setPoint(int newPoint){
             point = newPoint;
         }
+        float getX(){
+            return x;
+        }
+        float getY(){
+            return y;
+        }
+        
         
     }
     //^^^^^^^^^^  balloon
@@ -117,6 +124,14 @@ class allBalloons {
     void setPoint(int i, int newPoint){
         balloons.get(i).setPoint(newPoint);
     }
+    
+    
+        float getX(int i){
+            return balloons.get(i).getX();
+        }
+        float getY(int i){
+            return balloons.get(i).getY();
+        }
     
 }
 //^^^^^^^^^^  allBalloons
