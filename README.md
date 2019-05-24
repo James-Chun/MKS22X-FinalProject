@@ -60,3 +60,8 @@ Devin - Figured out how to check if monkey is on the line
       - Using that segment of the path, the monkey will "drop a perpendicular" to that segment and see if its distance to that            
         segement is allowable. Depending on this information it will place the monkey.
       
+May 24, 2019
+James - Balloon health - implemented health for balloons
+      - Working on changing color of balloon depending on its health
+      - Trying to use tint() but it permanently tints all images after it is performed so I need to find a way to "untint"
+      - Probably by reversing the coloring through another tint() call
