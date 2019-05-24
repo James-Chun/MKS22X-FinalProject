@@ -30,7 +30,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     p = new path(10); //creating path with specified points on path
     
     monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
-    balloons.add(new allBalloons(p.getStart()[0]-35,p.getStart()[1]-40));
+    balloons.add(new allBalloons( p.getStart()[0]-35 , p.getStart()[1]-40 , 4 ));
     //balloons.add(new allBalloons(100,100));
 }
 //^^^^^^^^^^
@@ -56,8 +56,8 @@ void draw() {
             float nextY = p.getNextPoint( currentBalloon.getPointOnLine(i) )[1];
           
             //currentBalloon.move( nextX , nextY ); //each balloon uses its own point tracker to find the coords of the next point and moves to that point
-            currentBalloon.move(thisX + (nextX - thisX)/(dist(thisX,thisY,nextX,nextY)) ,thisY + (nextY - thisY)/(dist(thisX,thisY,nextX,nextY)) );
-            if ( thisX >= nextX && thisY >= nextY ){
+            currentBalloon.move( thisX + (currentBalloon.getSpeed(i) * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) , thisY + (currentBalloon.getSpeed(i) * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
+            if ( thisX >= nextX ){
                 currentBalloon.setPoint( i, currentBalloon.getPointOnLine(i)+1 );
             }
             

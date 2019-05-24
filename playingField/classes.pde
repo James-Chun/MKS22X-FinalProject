@@ -56,14 +56,16 @@ class allBalloons {
         float x, y, w, h;
         PImage img;
         int point; //keeping track of which point the balloon is heading towards
+        int speed;
         
-        balloon(float x1, float y1, float width, float height, int p){
+        balloon(float x1, float y1, float width, float height, int p, int s){
             x = x1;
             y = y1;
             w = width;
             h = height;
             img = loadImage("balloon.png");
             point = p;
+            speed = s;
         }
         
         void display() {
@@ -92,6 +94,10 @@ class allBalloons {
             return y;
         }
         
+        int speed(){
+            return speed;
+        }
+        
         
     }
     //^^^^^^^^^^  balloon
@@ -99,9 +105,9 @@ class allBalloons {
 
 
    
-    allBalloons(float x2, float y2) {
+    allBalloons(float x2, float y2, int speed) {
         balloons = new ArrayList<balloon>();
-        balloons.add(new balloon(x2, y2, 70, 80, 0));
+        balloons.add(new balloon(x2, y2, 70, 80, 0, speed));
     }
     
     
@@ -125,14 +131,17 @@ class allBalloons {
         balloons.get(i).setPoint(newPoint);
     }
     
+    float getX(int i){
+        return balloons.get(i).getX();
+    }
+    float getY(int i){
+        return balloons.get(i).getY();
+    }
     
-        float getX(int i){
-            return balloons.get(i).getX();
-        }
-        float getY(int i){
-            return balloons.get(i).getY();
-        }
-    
+    int getSpeed(int i){
+        return balloons.get(i).speed();
+    }
+
 }
 //^^^^^^^^^^  allBalloons
 //----------------------------------------------------------------------------------------
