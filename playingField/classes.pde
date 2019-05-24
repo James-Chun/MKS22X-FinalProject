@@ -52,15 +52,17 @@ class balloon{
     PImage img;
     int point; //keeping track of which point the balloon is heading towards
     int speed;
+    float health;
     
-    balloon(float x1, float y1, float width, float height, int p, int s){
+    balloon(float x1, float y1, int p, int s, float he){
         x = x1;
         y = y1;
-        w = width;
-        h = height;
+        w = 70;
+        h = 80;
         img = loadImage("balloon.png");
         point = p;
         speed = s;
+        health = he;
     }
     
     void display() {
@@ -114,8 +116,8 @@ class allBalloons {
     }
     
     
-    void add(float x, float y, int speed){
-        balloons.add( new balloon(x,y,70,80,0,speed));
+    void add(float x, float y, int speed, float health){
+        balloons.add( new balloon( x , y , 0 , speed, health ) );
     }
     
      

@@ -29,9 +29,9 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     
     p = new path(10); //creating path wit specified points on pathh    
     monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
-    balloons.add( p.getStart()[0] , p.getStart()[1] , 4 );
-    balloons.add( p.getStart()[0] , p.getStart()[1] , 2 );
-    balloons.add( p.getStart()[0] , p.getStart()[1] , 1 );
+    balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
+    balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
+    balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
