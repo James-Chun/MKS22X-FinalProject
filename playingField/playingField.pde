@@ -42,7 +42,13 @@ int[] dropPerpendicular(int[][] points, int index, int x, int y) {
   int[] ans = new int[2];
   int[] firstPoint = points[index];
   int[] secondPoint = points[index+1];
+  int dy = secondPoint[1] - firstPoint[1];
+  int dx = secondPoint[0] - firstPoint[0];
   return ans;
+}
+
+int[] findSecondPoint(int[] p1, int[] p2, int[] startp) {
+  
 }
 void draw() {
   background(200);
