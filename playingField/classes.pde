@@ -41,7 +41,7 @@ class monkey {
     }
     
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  monkey
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ monkey ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
 
 
@@ -80,13 +80,6 @@ class balloon{
     void setY(float newY){
         y = newY;
     }
-    
-    int getPoint(){
-        return point;
-    }
-    void setPoint(int newPoint){
-        point = newPoint;
-    }
     float getX(){
         return x;
     }
@@ -94,15 +87,20 @@ class balloon{
         return y;
     }
     
-    int speed(){
-        return speed;
+    
+    int getPoint(){
+        return point;
     }
+    void setPoint(int newPoint){
+        point = newPoint;
+    }
+    
     
     int getSpeed(){
         return speed;
     }
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  balloon
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ balloon ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------
@@ -111,43 +109,32 @@ class allBalloons {
     ArrayList<balloon> balloons;
     
     
-
-
-   
     allBalloons() {
         balloons = new ArrayList<balloon>();
     }
+    
     
     void add(float x, float y, int speed){
         balloons.add( new balloon(x,y,70,80,0,speed));
     }
     
-    
-    void setPoint(int i, int newPoint){
-        balloons.get(i).setPoint(newPoint);
-    }
-    
-    float getX(int i){
-        return balloons.get(i).getX();
-    }
-    float getY(int i){
-        return balloons.get(i).getY();
-    }
-      
+     
     void remove(int i){
         balloons.remove(i);
     }
     
+    
     int size(){
         return balloons.size();
     }
+    
     
     balloon get(int i){
         return balloons.get(i);
     }
 
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  allBalloons
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ allBalloons ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
 
 
@@ -198,5 +185,5 @@ class path {
     }
     
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  path
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ path ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
