@@ -21,6 +21,16 @@ void initialize() {
   monkeys.add(new monkey(100, 100, 40, 40, p)); // first thing added is always the logo
 }
 
+int firstXBoundary(int[][] points, int xValue) {
+  for (int i = 1; i < points.length; i++) {
+    if (points[i][0] >= xValue) {
+      println(i - 1);
+      return i - 1;
+    }
+  }
+  return -1;
+}
+
 boolean isBetween(int x, int y, int x1, int y1, int x2, int y2) {
   if (dist(x, y, x1, y1) + dist(x, y, x2, y2) == dist(x1, y1, x2, y2)) {
     return true;
@@ -28,6 +38,12 @@ boolean isBetween(int x, int y, int x1, int y1, int x2, int y2) {
   return false;
 }
 
+int[] dropPerpendicular(int[][] points, int index, int x, int y) {
+  int[] ans = new int[2];
+  int[] firstPoint = points[index];
+  int[] secondPoint = points[index+1];
+  return ans;
+}
 void draw() {
   background(200);
   p.display();
@@ -56,6 +72,7 @@ void mousePressed() {
 
 void mouseReleased() {
   if (clickedOnLogo) {
+    println(firstXBoundary(p.getRandPoints(), (int)mouseX));
     for (int i = 1; i < p.getRandPoints().length; i++) { // move this to mouse released
       if (isBetween((int)mouseX, (int)mouseY, p.getRandPoints()[i-1][0], p.getRandPoints()[i-1][1], p.getRandPoints()[i][0], p.getRandPoints()[i][1])) {
         monkeys.add(new monkey(mouseX, mouseY, 40, 40, p));
