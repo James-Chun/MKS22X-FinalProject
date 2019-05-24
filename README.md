@@ -43,3 +43,10 @@ James - Worked more on balloons and getting them to follow the path
 Devin - Finished the random path generator
       - Started work on monkey (tower) placement [making sure the monkeys don't overlap with the path]
       
+May 23, 2019
+James - Finished balloon movement
+      - Balloons can now traverse the path
+      - Balloons have speed
+      - Balloons are also properly centered on the path 
+      
+      
