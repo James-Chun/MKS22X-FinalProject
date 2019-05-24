@@ -5,7 +5,7 @@ import java.util.*;
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class monkey {
     float x, y, w, h;
     
@@ -41,72 +41,72 @@ class monkey {
     }
     
 }
-//^^^^^^^^^^  monkey
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  monkey
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-    //vvvvvvvvvv
-    class balloon{
-        float x, y, w, h;
-        PImage img;
-        int point; //keeping track of which point the balloon is heading towards
-        int speed;
-        
-        balloon(float x1, float y1, float width, float height, int p, int s){
-            x = x1;
-            y = y1;
-            w = width;
-            h = height;
-            img = loadImage("balloon.png");
-            point = p;
-            speed = s;
-        }
-        
-        void display() {
-            pushMatrix();
-            translate(-35, -40);
-            fill(0);
-            rectMode(CENTER);
-            image(img, x, y, w, h);
-            popMatrix();  
-        }
-        
-        
-        
-        void setX(float newX){
-            x = newX;
-        }
-        void setY(float newY){
-            y = newY;
-        }
-        
-        int getPoint(){
-            return point;
-        }
-        void setPoint(int newPoint){
-            point = newPoint;
-        }
-        float getX(){
-            return x;
-        }
-        float getY(){
-            return y;
-        }
-        
-        int speed(){
-            return speed;
-        }
-        
-        int getSpeed(){
-            return speed;
-        }
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+class balloon{
+    float x, y, w, h;
+    PImage img;
+    int point; //keeping track of which point the balloon is heading towards
+    int speed;
+    
+    balloon(float x1, float y1, float width, float height, int p, int s){
+        x = x1;
+        y = y1;
+        w = width;
+        h = height;
+        img = loadImage("balloon.png");
+        point = p;
+        speed = s;
     }
-    //^^^^^^^^^^  balloon
-    //----------------------------------------------------------------------------------------
+    
+    void display() {
+        pushMatrix();
+        translate(-35, -40);
+        fill(0);
+        rectMode(CENTER);
+        image(img, x, y, w, h);
+        popMatrix();  
+    }
+    
+    
+    
+    void setX(float newX){
+        x = newX;
+    }
+    void setY(float newY){
+        y = newY;
+    }
+    
+    int getPoint(){
+        return point;
+    }
+    void setPoint(int newPoint){
+        point = newPoint;
+    }
+    float getX(){
+        return x;
+    }
+    float getY(){
+        return y;
+    }
+    
+    int speed(){
+        return speed;
+    }
+    
+    int getSpeed(){
+        return speed;
+    }
+}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  balloon
+//----------------------------------------------------------------------------------------
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class allBalloons {
     ArrayList<balloon> balloons;
     
@@ -147,12 +147,12 @@ class allBalloons {
     }
 
 }
-//^^^^^^^^^^  allBalloons
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  allBalloons
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class path {
     int[][] randPoints;
   
@@ -198,5 +198,5 @@ class path {
     }
     
 }
-//^^^^^^^^^^  path
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  path
 //----------------------------------------------------------------------------------------

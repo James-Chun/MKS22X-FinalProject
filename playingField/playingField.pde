@@ -9,18 +9,18 @@ boolean clickedOnLogo;
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void setup() { //setting the frameRate, size of the world, and initializing
     frameRate(60);
     size(1500, 800);
     initialize();
 }
-//^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ setup
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void initialize() { // creating the list of monkeys and balloons as well as the path
     clickedOnLogo = false;
     
@@ -30,14 +30,14 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     p = new path(10); //creating path wit specified points on pathh    
     monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 );
-    balloons.add( new allBalloons ( p.getStart()[0] , p.getStart()[1] , 2  ));
+    balloons.add( p.getStart()[0] , p.getStart()[1] , 2 );
 }
-//^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  initialize
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
     background(255);
     p.display();
@@ -72,28 +72,28 @@ void draw() {
         monkeys.get(i).display();
     }
 }
-//^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  draw
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mousePressed() {
     if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
         clickedOnLogo = true;
     }
 }
-//^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //----------------------------------------------------------------------------------------
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mouseReleased() {
     if (clickedOnLogo) {
         monkeys.add(new monkey(mouseX, mouseY, 40, 40));
         clickedOnLogo = false;
     }
 }
-//^^^^^^^^^^
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //----------------------------------------------------------------------------------------
