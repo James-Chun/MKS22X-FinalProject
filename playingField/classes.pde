@@ -46,11 +46,6 @@ class monkey {
 
 
 //----------------------------------------------------------------------------------------
-//vvvvvvvvvv
-class allBalloons {
-    ArrayList<balloon> balloons;
-    
-    //----------------------------------------------------------------------------------------
     //vvvvvvvvvv
     class balloon{
         float x, y, w, h;
@@ -69,10 +64,15 @@ class allBalloons {
         }
         
         void display() {
+            pushMatrix();
+            translate(-35, -40);
             fill(0);
             rectMode(CENTER);
             image(img, x, y, w, h);
+            popMatrix();  
         }
+        
+        
         
         void setX(float newX){
             x = newX;
@@ -98,40 +98,31 @@ class allBalloons {
             return speed;
         }
         
-        
+        int getSpeed(){
+            return speed;
+        }
     }
     //^^^^^^^^^^  balloon
     //----------------------------------------------------------------------------------------
 
+//----------------------------------------------------------------------------------------
+//vvvvvvvvvv
+class allBalloons {
+    ArrayList<balloon> balloons;
+    
+    
+
 
    
-    allBalloons(float x2, float y2, int speed) {
+    allBalloons() {
         balloons = new ArrayList<balloon>();
-        balloons.add(new balloon(x2, y2, 70, 80, 0, speed));
+    }
+    
+    void add(float x, float y, int speed){
+        balloons.add( new balloon(x,y,70,80,0,speed));
     }
     
     
-    void display() {
-      
-        for (balloon b : balloons) {
-          pushMatrix();
-          translate(-35, -40);
-          b.display();
-          popMatrix();
-        }
-        
-    }   
-    
-    void move(float newX, float newY){
-        for (int i=0;i<balloons.size();i++){
-          balloons.get(i).setX(newX);
-          balloons.get(i).setY(newY);
-        }
-    }
-    
-    int getPointOnLine(int i){
-        return balloons.get(i).getPoint();
-    }
     void setPoint(int i, int newPoint){
         balloons.get(i).setPoint(newPoint);
     }
@@ -142,9 +133,17 @@ class allBalloons {
     float getY(int i){
         return balloons.get(i).getY();
     }
+      
+    void remove(int i){
+        balloons.remove(i);
+    }
     
-    int getSpeed(int i){
-        return balloons.get(i).speed();
+    int size(){
+        return balloons.size();
+    }
+    
+    balloon get(int i){
+        return balloons.get(i);
     }
 
 }

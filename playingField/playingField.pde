@@ -3,7 +3,7 @@ import java.util.*;
 
 
 ArrayList<monkey> monkeys;
-ArrayList<allBalloons> balloons;
+allBalloons balloons;
 path p;
 boolean clickedOnLogo;
 
@@ -25,13 +25,12 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     clickedOnLogo = false;
     
     monkeys = new ArrayList<monkey>();
-    balloons = new ArrayList<allBalloons>();
+    balloons = new allBalloons();
     
-    p = new path(10); //creating path with specified points on path
-    
+    p = new path(10); //creating path wit specified points on pathh    
     monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
-    balloons.add(new allBalloons( p.getStart()[0] , p.getStart()[1] , 4 ));
-    //balloons.add(new allBalloons(100,100));
+    balloons.add( p.getStart()[0] , p.getStart()[1] , 4 );
+    //balloons.add( new allBalloons ( p.getStart()[0] , p.getStart()[1] , 2  ));
 }
 //^^^^^^^^^^
 //----------------------------------------------------------------------------------------
@@ -44,26 +43,27 @@ void draw() {
     p.display();
     
     for (int i = 0; i < balloons.size(); i++){
-        allBalloons currentBalloon = balloons.get(i);
+        balloon currentBalloon = balloons.get(i);
         
         currentBalloon.display();
         
-        if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPointOnLine(i)) ){
+        if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPoint()) ){
           
-            float thisX = currentBalloon.getX(i);
-            float thisY = currentBalloon.getY(i);
-            float nextX = p.getNextPoint( currentBalloon.getPointOnLine(i) )[0];
-            float nextY = p.getNextPoint( currentBalloon.getPointOnLine(i) )[1];
+            float thisX = currentBalloon.getX();
+            float thisY = currentBalloon.getY();
+            float nextX = p.getNextPoint( currentBalloon.getPoint() )[0];
+            float nextY = p.getNextPoint( currentBalloon.getPoint() )[1];
           
             //currentBalloon.move( nextX , nextY ); //each balloon uses its own point tracker to find the coords of the next point and moves to that point
-            currentBalloon.move( thisX + (currentBalloon.getSpeed(i) * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) , thisY + (currentBalloon.getSpeed(i) * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
+            currentBalloon.setX( thisX + (currentBalloon.getSpeed() * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
+            currentBalloon.setY( thisY + (currentBalloon.getSpeed() * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
             if ( thisX >= nextX ){
-                currentBalloon.setPoint( i, currentBalloon.getPointOnLine(i)+1 );
+                currentBalloon.setPoint( currentBalloon.getPoint()+1 );
             }
             
         }
         
-        else if ( !p.hasNextPoint( currentBalloon.getPointOnLine(i) ) ){
+        else if ( !p.hasNextPoint( currentBalloon.getPoint() ) ){
             balloons.remove(i);
         }
     }
