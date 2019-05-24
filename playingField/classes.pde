@@ -112,9 +112,14 @@ class allBalloons {
     
     
     void display() {
+      
         for (balloon b : balloons) {
+          pushMatrix();
+          translate(-35, -40);
           b.display();
+          popMatrix();
         }
+        
     }   
     
     void move(float newX, float newY){
