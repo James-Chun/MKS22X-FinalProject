@@ -86,7 +86,7 @@ void draw() {
         
         arrows.get(i).display();
         
-        if ( frameCount%1==0 && ( currentArrow.getX() - balloons.get(i).getX() <= 10 && currentArrow.getY() - balloons.get(i).getY() <= 10 ) ){
+        if ( frameCount%1==0 && ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ) ){
           
             float thisX = currentArrow.getX();
             float thisY = currentArrow.getY();
@@ -97,7 +97,7 @@ void draw() {
             currentArrow.setX( thisX + (15 * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
             currentArrow.setY( thisY + (15 * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
         }
-        else if ( currentArrow.getX() - balloons.get(i).getX() <= 10 && currentArrow.getY() - balloons.get(i).getY() <= 10 ){
+        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ){
             arrows.remove(i);
         }
     }
