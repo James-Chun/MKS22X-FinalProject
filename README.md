@@ -76,3 +76,10 @@ James - More progress on projectile (basically the same as balloon)
       - Projectile movement will track balloon's points (targeting system not yet implemented) and continously move towards it
       - Functions the same as balloon movement just the end point is constantly moving (projectile speed is set and moves very fast)
       - Have yet to make projectile disappear after reaching balloon and balloon take damage once getting intercepted by projectile
+
+May 27, 2019
+James - Worked on projectile movement
+      - Projectiles disappear after reaching the balloon
+      - Also implemented damage for the projectiles and balloons (once projectile reaches balloon it reduces health of balloon and then 
+        disappears)
+        
