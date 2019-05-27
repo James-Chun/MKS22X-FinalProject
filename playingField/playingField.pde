@@ -36,7 +36,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
     balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
     balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
-    arrows.add( 40 , 40 , 10);
+    arrows.add( 100 , 100 , 10);
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ void draw() {
         
         currentBalloon.display();
         
-        if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPoint()) ){
+        if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPoint()) ){    //balloon movement
           
             float thisX = currentBalloon.getX();
             float thisY = currentBalloon.getY();
@@ -86,7 +86,7 @@ void draw() {
         
         arrows.get(i).display();
         
-        if ( frameCount%1==0 && ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ) ){
+        /*if ( frameCount%1==0 && ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) >= 5 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) >= 5 ) ){    //arrow movement
           
             float thisX = currentArrow.getX();
             float thisY = currentArrow.getY();
@@ -97,9 +97,9 @@ void draw() {
             currentArrow.setX( thisX + (15 * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
             currentArrow.setY( thisY + (15 * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
         }
-        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ){
+        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 5 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 5 ){
             arrows.remove(i);
-        }
+        }*/
     }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ draw ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 

@@ -248,9 +248,9 @@ class projectile{
     
     void display() {
         pushMatrix();
-        //translate(-35, -40);
+        translate(x,y);
+        rotate(radians(90));
         fill(0);
-        rectMode(CENTER);
         image(img, x, y, 40, 40);
         popMatrix();  
     }
