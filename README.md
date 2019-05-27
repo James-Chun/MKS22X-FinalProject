@@ -44,5 +44,30 @@ James - Worked more on balloons and getting them to follow the path
       - It should be noted that there is an error when the balloon reaches the last point (has to do with getPoint and hasNextPoint are         slightly out of sync)
       
 Devin - Finished the random path generator
+      - The path works by splitting the world into different section and in each section a random x and y coordinate are generated
+      - The points are then placed onto the world and a line is drawn from each point to the next
       - Started work on monkey (tower) placement [making sure the monkeys don't overlap with the path]
       
+May 23, 2019
+James - Made adjustments to the balloon movement
+      - Works every 1 frame
+      - Fixed issue of balloon out of bounds exception when last balloon reaches the end (simple fix in hasNextPoint from length-1 to 
+        length-2)
+Devin - Made progress on monkey placement
+      - Using algorithm to check monkey's position to that of the line by "dropping a perpendicular" from moneky to line
+      - Problem is using the formula is difficult as equations cannot be solved in the traditional sense
+
+May 24, 2019
+James - Finished balloon movement
+      - Works exactly as mentioned on May 22 (balloons move towards next point in the path and uses trianglular properties to move along 
+        the path [which is one big hypotenus])
+      - Started work on projectile
+Devin - Still working on monkey placement
+      - Have decided to compare the placement of the monkey to the nearest two points
+      - Monkey placement inside the line is restricted so far
+
+May 26, 2019
+James - More progress on projectile (basically the same as balloon)
+      - Projectile movement will track balloon's points (targeting system not yet implemented) and continously move towards it
+      - Functions the same as balloon movement just the end point is constantly moving (projectile speed is set and moves very fast)
+      - Have yet to make projectile disappear after reaching balloon and balloon take damage once getting intercepted by projectile
