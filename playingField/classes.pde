@@ -246,11 +246,12 @@ class projectile{
         img = loadImage("arrow.png");
     }
     
-    void display() {
+    void display(float c, float b) {
         pushMatrix();
         translate(x,y);
-        rotate(radians(90));
+        rotate(tan(b/c));
         fill(0);
+        translate(-x-20,-y-20);
         image(img, x, y, 40, 40);
         popMatrix();  
     }
