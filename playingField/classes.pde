@@ -53,9 +53,9 @@ class balloon{
     PImage img;
     int point; //keeping track of which point the balloon is heading towards
     int speed;
-    float health;
+    int health;
     
-    balloon(float x1, float y1, int p, int s, float he){
+    balloon(float x1, float y1, int p, int s, int he){
         x = x1;
         y = y1;
         w = 70;
@@ -104,6 +104,13 @@ class balloon{
     int getSpeed(){
         return speed;
     }
+    
+    void takeDamage(int dmg){
+       health -= dmg;
+    }
+    int getH(){
+      return health;}
+    
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ balloon ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -121,7 +128,7 @@ class allBalloons {
     }
     
     
-    void add(float x, float y, int speed, float health){
+    void add(float x, float y, int speed, int health){
         balloons.add( new balloon( x , y , 0 , speed, health ) );
     }
     
@@ -249,7 +256,7 @@ class projectile{
     void display(float c, float b) {
         pushMatrix();
         translate(x,y);
-        rotate(tan(b/c));
+        rotate(cos(b/c));
         fill(0);
         translate(-x-20,-y-20);
         image(img, x, y, 40, 40);
@@ -268,6 +275,10 @@ class projectile{
     }
     float getY(){
         return y;
+    }
+    
+    int getDamage(){
+        return dmg;
     }
     
 }
