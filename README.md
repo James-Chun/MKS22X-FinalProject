@@ -36,13 +36,43 @@ James - Note: Balloon coord is on top left of the image
       
 Devin - Worked on the random path generator
       - Consulted Mr. Konstantinovich on how to make algorithm for random path
+      - Decided to split up the map into sections and generate random x in between each section and a random y for each x-coord 
+        and connect all points to generate path.
       
 May 22, 2019
 James - Worked more on balloons and getting them to follow the path
-      - Each balloon will keep track of the random point they are currently moving towards
-      - In the draw() every 45 frames the balloons will determine if they have a point to move towards and move to that point
-      - It should be noted that there is an error when the balloon reaches the last point (has to do with getPoint and hasNextPoint are         slightly out of sync)
+      - Will have each balloon check the points in the path and have them move towards the next point coordinates.
       
 Devin - Finished the random path generator
       - Started work on monkey (tower) placement [making sure the monkeys don't overlap with the path]
+      - Checking if monkey is in Between the line segment path
       
+May 23, 2019
+James - Finished balloon movement
+      - Balloons can now traverse the path
+      - Balloons have speed
+      - Each balloon moves a certain amount in the x and y plane proportional to the length of the segment (each path segment is 
+        one big triangle so dividing each leg by the hypotenuse will create a bunch of smaller triangles with hypotenus 1 or path   
+        distance 1 allowing balloons to move at constant speed)
+      - Balloons are also properly centered on the path
+      
+Devin - Figured out how to check if monkey is on the line
+      - Algorithm will check the monkey's x-coord with that of every point on the line, find which two points it is in between.
+      - Using that segment of the path, the monkey will "drop a perpendicular" to that segment and see if its distance to that            
+        segement is allowable. Depending on this information it will place the monkey.
+      
+May 24, 2019
+James - Balloon health - implemented health for balloons
+      - Working on changing color of balloon depending on its health
+      - Trying to use tint() but it permanently tints all images after it is performed so I need to find a way to "untint"
+      - Probably by reversing the coloring through another tint() call
+
+Devin - Still working on monkey placement
+      - Have decided to compare the placement of the monkey to the nearest two points
+      - Monkey placement inside the line is restricted so far
+
+May 26, 2019
+James - More progress on projectile (basically the same as balloon)
+      - Projectile movement will track balloon's points (targeting system not yet implemented) and continously move towards it
+      - Functions the same as balloon movement just the end point is constantly moving (projectile speed is set and moves very fast)
+      - Have yet to make projectile disappear after reaching balloon and balloon take damage once getting intercepted by projectile
