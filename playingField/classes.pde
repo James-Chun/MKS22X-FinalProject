@@ -200,7 +200,40 @@ class path {
 
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+class projectiles{
+    ArrayList<projectile> arrows;
+    
+    projectiles(){
+        arrows = new ArrayList<>();
+    }
+    
+    void add(float x, float y , int d){
+        arrows.add( new projectile( x , y , d) );
+    }
+    
+     
+    void remove(int i){
+        arrows.remove(i);
+    }
+    
+    
+    int size(){
+        return arrows.size();
+    }
+    
+    
+    projectile get(int i){
+        return arrows.get(i);
+    }
+    
+}
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^projectiles^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//----------------------------------------------------------------------------------------
 
+
+
+//----------------------------------------------------------------------------------------
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class projectile{
     float x,y;
     int dmg;
@@ -210,11 +243,16 @@ class projectile{
         x = x1;
         y = y1;
         dmg = d;
-        img = loadImage("");
+        img = loadImage("arrow.jpeg");
     }
     
-    void display(){
-        
+    void display() {
+        //pushMatrix();
+        //translate(-35, -40);
+        fill(0);
+        rectMode(CENTER);
+        image(img, x, y, 40, 40);
+        //popMatrix();  
     }
 
 }
