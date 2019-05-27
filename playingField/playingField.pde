@@ -4,6 +4,7 @@ import java.util.*;
 
 ArrayList<monkey> monkeys;
 allBalloons balloons;
+allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
 
@@ -27,12 +28,15 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     
     monkeys = new ArrayList<monkey>();
     balloons = new allBalloons();
+    arrows = new allProjectiles();
+    
     
     p = new path(10); //creating path wit specified points on pathh    
     monkeys.add(new monkey(100, 100, 40, 40)); // first thing added is always the logo
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
     balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
     balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
+    arrows.add( 40 , 40 , 10);
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -45,7 +49,7 @@ void draw() {
     background(255);
     p.display();
     
-    for (int i = 0; i < balloons.size(); i++){
+    for (int i = 0; i < balloons.size(); i++){    //balloon display
         balloon currentBalloon = balloons.get(i);
         
         currentBalloon.display();
@@ -71,8 +75,32 @@ void draw() {
         }
     }
     
-    for (int i = 1; i < monkeys.size(); i++) {
+    
+    for (int i = 1; i < monkeys.size(); i++) {    //monkey display
         monkeys.get(i).display();
+    }
+    
+    
+    for (int i = 0; i < arrows.size(); i++){    //arrow display
+        projectile currentArrow = arrows.get(i);
+        
+        arrows.get(i).display();
+        
+        if ( frameCount%1==0 && (currentArrow.getX() != balloons.get(i).getX() && currentArrow.getY() != balloons.get(i).getY() ) ){
+          
+            float thisX = currentBalloon.getX();
+            float thisY = currentBalloon.getY();
+            float nextX = p.getNextPoint( currentBalloon.getPoint() )[0];
+            float nextY = p.getNextPoint( currentBalloon.getPoint() )[1];
+          
+            //currentBalloon.move( nextX , nextY ); //each balloon uses its own point tracker to find the coords of the next point and moves to that point
+            currentBalloon.setX( thisX + (currentBalloon.getSpeed() * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
+            currentBalloon.setY( thisY + (currentBalloon.getSpeed() * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
+            if ( thisX >= nextX ){
+                currentBalloon.setPoint( currentBalloon.getPoint()+1 );
+            }
+            
+        }
     }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ draw ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
