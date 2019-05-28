@@ -108,7 +108,7 @@ class balloon{
     void takeDamage(int dmg){
        health -= dmg;
     }
-    int getH(){
+    int getHealth(){
       return health;}
     
 }
@@ -255,11 +255,9 @@ class projectile{
     
     void display(float c, float b) {
         pushMatrix();
-        translate(x,y);
-        rotate(cos(b/c));
         fill(0);
-        translate(-x-20,-y-20);
-        image(img, x, y, 40, 40);
+        translate(-15,-15);
+        image(img, x, y, 30, 30);
         popMatrix();  
     }
     

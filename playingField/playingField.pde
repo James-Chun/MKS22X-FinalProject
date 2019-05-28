@@ -36,7 +36,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
     balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
     balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
-    arrows.add( 10 , 10 , 10);
+    arrows.add( 10 , 10 , 100);
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -51,7 +51,9 @@ void draw() {
     
     for (int i = 0; i < balloons.size(); i++){    //balloon display
         balloon currentBalloon = balloons.get(i);
-            
+        
+        if ( currentBalloon.getHealth() == 0) balloons.remove(i);
+        
         currentBalloon.display();
         
         if ( frameCount%1==0 && p.hasNextPoint(currentBalloon.getPoint()) ){    //balloon movement
@@ -91,16 +93,16 @@ void draw() {
         
         arrows.get(i).display( nextX - thisX , dist(thisX,thisY,nextX,nextY) );
         
-        if ( frameCount%1==0 && ( Math.abs( thisX - nextX ) >= 5 && Math.abs( thisY - nextY ) >= 5 ) ){    //arrow movement
+        if ( frameCount%1==0 && ( Math.abs( thisX - nextX ) >= 10 && Math.abs( thisY - nextY ) >= 10 ) ){    //arrow movement
                  
             //each arrow tracks balloon's coords and continously moves towards them  
-            currentArrow.setX( thisX + (15 * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
-            currentArrow.setY( thisY + (15 * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
+            currentArrow.setX( thisX + (30 * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
+            currentArrow.setY( thisY + (30 * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
         }
-        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 5 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 5 ){
-            //System.out.println(balloons.get(i).getH() );
+        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ){
+            //System.out.println(balloons.get(i).getHealth() );
             balloons.get(i).takeDamage( currentArrow.getDamage() );
-            //System.out.println(balloons.get(i).getH() );
+            //System.out.println(balloons.get(i).getHealth() );
             arrows.remove(i);
         }
     }
