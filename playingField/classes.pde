@@ -7,13 +7,15 @@ import java.util.*;
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class monkey {
+    int[][] allPoints;
     float x, y, w, h;
     
-    monkey(float xPos, float yPos, float wid, float hei) { //constructor
-        x = xPos;
-        y = yPos;
-        w = wid;
-        h = hei;
+    monkey(float xPos, float yPos, float wid, float hei, path p) {
+      x = xPos;
+      y = yPos;
+      w = wid;
+      h = hei;
+      allPoints = p.getRandPoints();
     }
     
     float getX() {
@@ -39,7 +41,7 @@ class monkey {
         }
         return false;
     }
-    
+
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ monkey ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -198,6 +200,10 @@ class path {
     boolean hasNextPoint(int index){
         return index<=randPoints.length-2;
     }
+        
+  int[][] getRandPoints() {
+    return randPoints;
+  }
     
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ path ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
@@ -262,6 +268,7 @@ class projectile{
         image(img, x, y, 40, 40);
         popMatrix();  
     }
+
     
     
     void setX(float newX){
