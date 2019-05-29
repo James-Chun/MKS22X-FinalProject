@@ -94,6 +94,9 @@ Devin - Worked on monkey distance tracker
       - Still buggy because the coordinate plane for processing is not a typical plane with origin in the center
 
 May 29, 2019
-James - 
+James - Helped Devin
 
-Devin - 
+Devin - Finally got monkey placement to work
+      - Problem was using the wrong variables in the calculations
+      - Monkeys can now determine which line to compare to and can determine distance from that line and whether or not it is 
+        touching said line
