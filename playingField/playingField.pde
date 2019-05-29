@@ -32,6 +32,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
     
     p = new path(10); //creating path wit specified points on pathh    
     monkeys.add(new monkey(100, 100, 40, 40, p)); // first thing added is always the logo
+    monkeys.add(new monkey(100, 100, 40, 40, p));
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
     balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
     balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
@@ -60,7 +61,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
   float dy = (float) (p2[1] - p1[1]);
   float dx = (float) (p2[0] - p1[0]);
   float slope = dy / dx;
-  println("slope: " + slope);
+  //println("slope: " + slope);
   float b = p2[1] - (slope * p2[0]); // take into account that (0,0) is the upper left corner
   return (abs((slope * x) - y + b)) / sqrt((slope * slope) + 1);
 }
@@ -143,7 +144,7 @@ void draw() {
     float targetY = mouseY;
     float dy = targetY - y;
     y += dy * easing;
-    ellipse(x, y, 40, 40);
+    monkeys.get(0).display();
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ draw ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 

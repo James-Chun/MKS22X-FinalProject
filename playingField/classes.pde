@@ -9,6 +9,7 @@ import java.util.*;
 class monkey {
     int[][] allPoints;
     float x, y, w, h;
+    PImage img;
     
     monkey(float xPos, float yPos, float wid, float hei, path p) {
       x = xPos;
@@ -16,6 +17,7 @@ class monkey {
       w = wid;
       h = hei;
       allPoints = p.getRandPoints();
+      img = loadImage("monkey.png");
     }
     
     float getX() {
@@ -28,7 +30,7 @@ class monkey {
     void display() {
         fill(255);
         strokeWeight(1);
-        ellipse(x, y, w, h);
+        image(img,x, y, w, h);
     }
     
     void touchingPath() {
