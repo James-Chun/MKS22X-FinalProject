@@ -74,12 +74,26 @@ Devin - Still working on monkey placement
 May 26, 2019
 James - More progress on projectile (basically the same as balloon)
       - Projectile movement will track balloon's points (targeting system not yet implemented) and continously move towards it
-      - Functions the same as balloon movement just the end point is constantly moving (projectile speed is set and moves very fast)
-      - Have yet to make projectile disappear after reaching balloon and balloon take damage once getting intercepted by projectile
+      - Functions the same as balloon movement just the end point is constantly moving (projectile speed is set and moves very      
+        fast)
+      - Have yet to make projectile disappear after reaching balloon and balloon take damage once getting intercepted by 
+        projectile
 
 May 27, 2019
 James - Worked on projectile movement
       - Projectiles disappear after reaching the balloon
-      - Also implemented damage for the projectiles and balloons (once projectile reaches balloon it reduces health of balloon and then 
-        disappears)
+      - Also implemented damage for the projectiles and balloons (once projectile reaches balloon it reduces health of balloon 
+        and then disappears)
         
+May 28, 2019
+James - Gave monkeys images
+      - Fixed bugs with arrows and balloons
+
+Devin - Worked on monkey distance tracker
+      - Using math formulas to calculate distance instead of using complicated methods
+      - Still buggy because the coordinate plane for processing is not a typical plane with origin in the center
+
+May 29, 2019
+James - 
+
+Devin - 
