@@ -43,7 +43,8 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
   float dy = (float) (p2[1] - p1[1]);
   float dx = (float) (p2[0] - p1[0]);
   float slope = dy / dx;
-  float b = p2[1] - (slope * p2[1]);
+  println("slope: " + slope);
+  float b = p2[1] - (slope * p2[0]); // take into account that (0,0) is the upper left corner
   return (abs((slope * x) - y + b)) / sqrt((slope * slope) + 1);
 }
 
