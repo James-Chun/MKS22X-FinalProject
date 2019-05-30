@@ -170,7 +170,7 @@ void mouseReleased() {
   if (clickedOnLogo) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 30) {
-      monkeys.add(new monkey(mouseX, mouseY, 20, 20, p));
+      monkeys.add(new monkey(mouseX, mouseY, 40, 40, p));
     }
     clickedOnLogo = false;
   }
