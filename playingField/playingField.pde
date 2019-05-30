@@ -7,6 +7,7 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
+PImage background;
 
 
 //----------------------------------------------------------------------------------------
@@ -14,6 +15,7 @@ boolean clickedOnLogo;
 void setup() { //setting the frameRate, size of the world, and initializing
     frameRate(60);
     size(1500, 800);
+    background = loadImage("background.jpg");
     initialize();
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ setup ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +75,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
-    background(255);
+    background(0,190,70);
     p.display();
     float easing = 1.0;
     float x = monkeys.get(0).getX();
