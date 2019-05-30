@@ -33,6 +33,12 @@ class monkey {
         image(img,x, y, w, h);
     }
     
+    void display(float x1, float y1) {
+        fill(255);
+        strokeWeight(1);
+        image(img,x1, y1, w, h);
+    }
+    
     void touchingPath() {
     }
   

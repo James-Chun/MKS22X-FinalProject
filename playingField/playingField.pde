@@ -144,7 +144,7 @@ void draw() {
     float targetY = mouseY;
     float dy = targetY - y;
     y += dy * easing;
-    monkeys.get(0).display();
+    monkeys.get(0).display(mouseX, mouseY);
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ draw ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
