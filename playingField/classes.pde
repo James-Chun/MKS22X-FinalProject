@@ -174,11 +174,14 @@ class path {
             //println(Arrays.toString(randPoints[i]));
             strokeWeight(20);
             line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
+            
             pushMatrix();
-            translate(-10, -10);
-            rotate(.2);
-            image(path, randPoints[i-1][0], randPoints[i-1][1], 20, 20);
+            translate(randPoints[i-1][0]-10,randPoints[i-1][1]-10);
+            //translate(randPoints[i-1][0],randPoints[i-1][1]);
+            rotate(radians(360) - atan( -(randPoints[i-1][1]-randPoints[i][1]) / (randPoints[i][0]-randPoints[i-1][0]) ) );
+            image(path, 0, 0, 20, 20);
             popMatrix();
+            
         }
     }
 
