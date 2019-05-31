@@ -183,7 +183,13 @@ class path {
   void makePath() {
     int spacing = (int) width / randPoints.length;
     for (int r = 0; r < randPoints.length; r++) {
-      randPoints[r][0] = (int) random(spacing * r, spacing * (r+1));
+      if (r == 0) {
+        randPoints[r][0] = 0;
+      } else if (r == randPoints.length -1) {
+        randPoints[r][0] = width;
+      } else {
+        randPoints[r][0] = (int) random(spacing * r, spacing * (r+1));
+      }
     }
     for (int r = 0; r < randPoints.length; r++) {
       randPoints[r][1] = (int) random(height);
