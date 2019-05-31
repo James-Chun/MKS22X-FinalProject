@@ -10,14 +10,16 @@ class monkey {
     int[][] allPoints;
     float x, y, w, h;
     PImage img;
+    float rangeRadius;
     
-    monkey(float xPos, float yPos, float wid, float hei, path p) {
+    monkey(float xPos, float yPos, float wid, float hei, path p, float range) {
       x = xPos;
       y = yPos;
       w = wid;
       h = hei;
       allPoints = p.getRandPoints();
       img = loadImage("monkey.png");
+      rangeRadius = range;
     }
     
     float getX() {

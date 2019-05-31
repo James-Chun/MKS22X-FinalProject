@@ -24,15 +24,14 @@ void setup() { //setting the frameRate, size of the world, and initializing
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void initialize() { // creating the list of monkeys and balloons as well as the path
     clickedOnLogo = false;
-    
     monkeys = new ArrayList<monkey>();
     balloons = new allBalloons();
     arrows = new allProjectiles();
     
     
     p = new path(10); //creating path wit specified points on pathh    
-    monkeys.add(new monkey(100, 100, 40, 40, p)); // first thing added is always the logo
-    monkeys.add(new monkey(100, 100, 40, 40, p));
+    monkeys.add(new monkey(100, 100, 40, 40, p, 30)); // first thing added is always the logo
+    monkeys.add(new monkey(100, 100, 40, 40, p, 30));
     balloons.add( p.getStart()[0] , p.getStart()[1] , 4 , 100);
     balloons.add( p.getStart()[0] , p.getStart()[1] , 2 , 50 );
     balloons.add( p.getStart()[0] , p.getStart()[1] , 1 , 25);
@@ -170,7 +169,7 @@ void mouseReleased() {
   if (clickedOnLogo) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 30) {
-      monkeys.add(new monkey(mouseX, mouseY, 40, 40, p));
+      monkeys.add(new monkey(mouseX, mouseY, 40, 40, p, 30));
     }
     clickedOnLogo = false;
   }
