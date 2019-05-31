@@ -161,10 +161,12 @@ class allBalloons {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class path {
     int[][] randPoints;
+    PImage path;
   
     path(int totalPoints) {//creating path with specified number of points
         randPoints = new int[totalPoints][2];
         makePath();
+        path = loadImage("path.jpg");
     }
   
     void display() {
@@ -172,6 +174,11 @@ class path {
             //println(Arrays.toString(randPoints[i]));
             strokeWeight(20);
             line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
+            pushMatrix();
+            translate(-10, -10);
+            rotate(.2);
+            image(path, randPoints[i-1][0], randPoints[i-1][1], 20, 20);
+            popMatrix();
         }
     }
 

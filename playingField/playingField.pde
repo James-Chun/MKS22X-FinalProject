@@ -7,7 +7,6 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
-PImage background;
 
 
 //----------------------------------------------------------------------------------------
@@ -15,7 +14,6 @@ PImage background;
 void setup() { //setting the frameRate, size of the world, and initializing
     frameRate(60);
     size(1500, 800);
-    background = loadImage("background.jpg");
     initialize();
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ setup ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
