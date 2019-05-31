@@ -30,7 +30,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
 
 
   p = new path(10); //creating path wit specified points on pathh    
-  monkeys.add(new monkey(100, 100, 40, 40, p, 60)); // first thing added is always the logo
+  monkeys.add(new monkey(100, 100, 40, 40, p, 350)); // first thing added is always the logo
   balloons.add( p.getStart()[0], p.getStart()[1], 4, 100);
   balloons.add( p.getStart()[0], p.getStart()[1], 2, 50 );
   balloons.add( p.getStart()[0], p.getStart()[1], 1, 25);
@@ -71,6 +71,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
+  //println(frameCount);
   background(255);
   p.display();
   float easing = 1.0;
@@ -105,6 +106,7 @@ void draw() {
 
   for (int i = 0; i < monkeys.size(); i++) {    //monkey display
     monkeys.get(i).display();
+    monkeys.get(i).attack(balloons.getAllBalloons());
   }
 
 
@@ -165,7 +167,7 @@ void mouseReleased() {
   if (clickedOnLogo) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 30) {
-      monkeys.add(new monkey(mouseX, mouseY, 40, 40, p, 60));
+      monkeys.add(new monkey(mouseX, mouseY, 40, 40, p, 150));
     }
     clickedOnLogo = false;
   }

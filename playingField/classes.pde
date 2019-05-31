@@ -50,6 +50,14 @@ class monkey {
     fill(200, 10);
     ellipse(x1, y1, rangeRadius, rangeRadius);
   }
+  
+  void attack(ArrayList<balloon> balloons) {
+    for(int i = 0; i < balloons.size(); i++) {
+      if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeRadius / 2) {
+        balloons.get(i).takeDamage(1);
+      }
+    }
+  }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ monkey ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
@@ -155,6 +163,10 @@ class allBalloons {
 
   balloon get(int i) {
     return balloons.get(i);
+  }
+  
+  ArrayList<balloon> getAllBalloons() {
+    return balloons;
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ allBalloons ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
