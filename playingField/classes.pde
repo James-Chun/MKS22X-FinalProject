@@ -176,10 +176,11 @@ class path {
             line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
             
             pushMatrix();
-            translate(randPoints[i-1][0]-10,randPoints[i-1][1]-10);
+            translate(randPoints[i-1][0]-10,randPoints[i-1][1]);
             //translate(randPoints[i-1][0],randPoints[i-1][1]);
-            rotate(radians(360) - atan( -(randPoints[i-1][1]-randPoints[i][1]) / (randPoints[i][0]-randPoints[i-1][0]) ) );
-            image(path, 0, 0, 20, 20);
+            rotate( asin( (randPoints[i][0] - randPoints[i-1][0]) / -sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+            //System.out.print(i + ":" + atan( (randPoints[i][0] - randPoints[i-1][0]) / (randPoints[i-1][1] - randPoints[i][1]) ) + "");
+            image(path, 0, 0, 20, sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
             popMatrix();
             
         }
