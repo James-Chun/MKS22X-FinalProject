@@ -44,15 +44,15 @@ class monkey {
     image(img, x1, y1, w, h);
     popMatrix();
   }
-  
+
   void rangeDisplay(float x1, float y1) {
     strokeWeight(0);
     fill(200, 10);
     ellipse(x1, y1, rangeRadius, rangeRadius);
   }
-  
+
   void attack(ArrayList<balloon> balloons) {
-    for(int i = 0; i < balloons.size(); i++) {
+    for (int i = 0; i < balloons.size(); i++) {
       if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeRadius / 2) {
         balloons.get(i).takeDamage(1);
       }
@@ -164,7 +164,7 @@ class allBalloons {
   balloon get(int i) {
     return balloons.get(i);
   }
-  
+
   ArrayList<balloon> getAllBalloons() {
     return balloons;
   }
@@ -178,20 +178,29 @@ class allBalloons {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 class path {
   int[][] randPoints;
+  PImage path;
 
   path(int totalPoints) {//creating path with specified number of points
     randPoints = new int[totalPoints][2];
     makePath();
+    path = loadImage("path.png");
   }
 
   void display() {
     for (int i = 1; i < randPoints.length; i++) {
-      //println(Arrays.toString(randPoints[i]));
-      strokeWeight(20);
-      line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
+      strokeWeight(20);            
+      pushMatrix();
+      if (randPoints[i-1][1] > randPoints[i][1]) {
+        translate(randPoints[i-1][0], randPoints[i-1][1]);
+        rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+      } else {
+        translate(randPoints[i-1][0], randPoints[i-1][1]);
+        rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+      }
+      image(path, -20, -10, 40, 20 + sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
+      popMatrix();
     }
   }
-
   void makePath() {
     int spacing = (int) width / randPoints.length;
     for (int r = 0; r < randPoints.length; r++) {
