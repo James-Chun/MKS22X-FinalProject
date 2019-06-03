@@ -84,8 +84,11 @@ class allBalloons {
   void remove(int i) {
     balloons.remove(i);
   }
-
-
+  
+  void remove(balloon b) {
+    balloons.remove(b);
+  }
+  
   int size() {
     return balloons.size();
   }
