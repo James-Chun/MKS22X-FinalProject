@@ -173,20 +173,36 @@ class path {
     }
   
     void display(boolean p) {
-        for (int i = 1; i < randPoints.length; i++) {
-            strokeWeight(1);            
+        strokeWeight(0);
+         if (p){   
+             for (int i = 1; i < randPoints.length; i++) {      
+                 pushMatrix();  
+                 fill(200,40,0);
+                 ellipse(randPoints[i][0],randPoints[i][1],120,120);
+              
+                 translate(randPoints[i-1][0],randPoints[i-1][1]);
+                 if (randPoints[i-1][1] > randPoints[i][1]){
+                     rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+                     rect(-60 , 0 , 120, 20+ sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
+                 }
+                 else{
+                     rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+                     rect(-60 , 0 , 120, sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
+                 }
+                 popMatrix();
+            }
+        }
+        
+        for (int i = 1; i < randPoints.length; i++) {       
             pushMatrix();
             if (randPoints[i-1][1] > randPoints[i][1]){
               translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
-              if (p)rect(-60 , 0 , 120, 20+ sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
-            }
+          }
             else{
               translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
-              if (p)rect(-60 , 0 , 120, sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
-            }
-            
+          }
             image(path, -20, -10, 40,20 + sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
             popMatrix();
             
