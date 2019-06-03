@@ -28,13 +28,11 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   balloons = new allBalloons();
   arrows = new allProjectiles();
 
-
   p = new path(10); //creating path wit specified points on pathh    
   monkeys.add(new monkey(100, 100, 40, 40, p, 350)); // first thing added is always the logo
-  balloons.add( p.getStart()[0], p.getStart()[1], 4, 1);
-  balloons.add( p.getStart()[0], p.getStart()[1], 2, 20);
-  balloons.add( p.getStart()[0], p.getStart()[1], 1, 1);
-  arrows.add( 10, 10, 1, balloons.get(1));
+  balloons.add(p.getStart()[0], p.getStart()[1], 4, 1);
+  balloons.add(p.getStart()[0], p.getStart()[1], 2, 1);
+  balloons.add(p.getStart()[0], p.getStart()[1], 1, 1);
 }
 
 int firstXBoundary(int[][] points, int xValue) {
@@ -79,35 +77,15 @@ void draw() {
 
   for (int i = 0; i < balloons.size(); i++) {    //balloon display
     balloon currentBalloon = balloons.get(i);
-
     if ( currentBalloon.getHealth() == 0) balloons.remove(i);
-
     currentBalloon.display();
-
-    if ( second()%1==0 && p.hasNextPoint(currentBalloon.getPoint()) ) {    //balloon movement
-
-      float thisX = currentBalloon.getX();
-      float thisY = currentBalloon.getY();
-      float nextX = p.getNextPoint( currentBalloon.getPoint() )[0];
-      float nextY = p.getNextPoint( currentBalloon.getPoint() )[1];
-
-      //currentBalloon.move( nextX , nextY ); //each balloon uses its own point tracker to find the coords of the next point and moves to that point
-      currentBalloon.setX( thisX + (currentBalloon.getSpeed() * (nextX - thisX))/(dist(thisX, thisY, nextX, nextY)) );
-      currentBalloon.setY( thisY + (currentBalloon.getSpeed() * (nextY - thisY))/(dist(thisX, thisY, nextX, nextY)) );
-      if ( thisX >= nextX ) {
-        currentBalloon.setPoint( currentBalloon.getPoint()+1 );
-      }
-    } else if ( !p.hasNextPoint( currentBalloon.getPoint() ) ) {
-      balloons.remove(i);
-    }
+    currentBalloon.move();
   }
-
 
   for (int i = 0; i < monkeys.size(); i++) {    //monkey display
     monkeys.get(i).display();
     //monkeys.get(i).attack(balloons.getAllBalloons());
   }
-
 
   for (int i = 0; i < arrows.size(); i++) {    //arrow display
     arrows.get(i).display();
@@ -154,5 +132,3 @@ void mouseReleased() {
     clickedOnLogo = false;
   }
 }
-//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//----------------------------------------------------------------------------------------

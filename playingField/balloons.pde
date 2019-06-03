@@ -40,8 +40,6 @@ class balloon {
   float getY() {
     return y;
   }
-
-
   int getPoint() {
     return point;
   }
@@ -58,6 +56,20 @@ class balloon {
   }
   int getHealth() {
     return health;
+  }
+  void move() {
+    println(point);
+    if (second() % 1 == 0 && p.hasNextPoint(point)) {
+      float nextX = p.getNextPoint(point)[0];
+      float nextY = p.getNextPoint(point)[1];
+      x = x + (speed * (nextX - x)) / (dist(x, y, nextX, nextY));
+      y = y + (speed * (nextY - y)) / (dist(x, y, nextX, nextY));
+      if (x >= nextX) {
+        point++;
+      }
+    } else if (!p.hasNextPoint(point)) {
+      balloons.remove(this);
+    }
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ balloon ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
@@ -77,18 +89,18 @@ class allBalloons {
 
 
   void add(float x, float y, int speed, int health) {
-    balloons.add( new balloon( x, y, 0, speed, health ) );
+    balloons.add(new balloon(x, y, 0, speed, health));
   }
 
 
   void remove(int i) {
     balloons.remove(i);
   }
-  
+
   void remove(balloon b) {
     balloons.remove(b);
   }
-  
+
   int size() {
     return balloons.size();
   }
