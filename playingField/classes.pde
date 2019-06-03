@@ -94,9 +94,6 @@ class balloon {
     //untint!!!!!!!!!!!!!!!!!!!!!!!!!!!
     popMatrix();
   }
-
-
-
   void setX(float newX) {
     x = newX;
   }
@@ -117,7 +114,6 @@ class balloon {
   void setPoint(int newPoint) {
     point = newPoint;
   }
-
 
   int getSpeed() {
     return speed;
@@ -253,13 +249,13 @@ class allProjectiles {
     arrows = new ArrayList<projectile>();
   }
 
-  void add(float x, float y, int d) {
-    arrows.add( new projectile( x, y, d) );
+  void add(float x, float y, int d, balloon b) {
+    arrows.add(new projectile(x, y, d, b));
   }
 
 
-  void remove(int i) {
-    arrows.remove(i);
+  void remove(projectile p) {
+    arrows.remove(p);
   }
 
 
@@ -283,30 +279,29 @@ class projectile {
   float x, y;
   int dmg;
   PImage img;
+  balloon b;
 
-  projectile(float x1, float y1, int d) {
+  projectile(float x1, float y1, int d, balloon target) {
     x = x1;
     y = y1;
     dmg = d;
     img = loadImage("arrow.png");
+    b = target;
   }
 
-  void display(float c, float b) {
+  void display() {
     pushMatrix();
     fill(0);
     translate(-15, -15);
     image(img, x, y, 30, 30);
     popMatrix();
   }
-
-
-
-  void setX(float newX) {
-    x = newX;
-  }
-  void setY(float newY) {
-    y = newY;
-  }
+  //void setX(float newX) {
+  //  x = newX;
+  //}
+  //void setY(float newY) {
+  //  y = newY;
+  //}
   float getX() {
     return x;
   }
@@ -316,6 +311,17 @@ class projectile {
 
   int getDamage() {
     return dmg;
+  }
+
+  void moveTo() {
+    if (second() % 1 == 0 && (Math.abs(x - b.getX()) >= 10 && Math.abs(y - b.getY()) >= 10)) {
+      x = x + (30 * (b.getX() - x)) / (dist(x, y, b.getX(), b.getY()));
+      y = y + (30 * (b.getY() - y)) / (dist(x, y, b.getX(), b.getY()));
+    } else if (Math.abs(x - b.getX()) <= 10 && Math.abs(y - b.getY()) <= 10){
+      b.takeDamage(dmg);
+      arrows.remove(this);
+      println(b.getHealth());
+    }
   }
 }
 
