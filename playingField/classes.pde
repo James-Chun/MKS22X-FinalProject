@@ -176,7 +176,7 @@ class path {
             line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
             
             pushMatrix();
-            translate(randPoints[i-1][0]-10,randPoints[i-1][1]);
+            translate(randPoints[i-1][0]-20,randPoints[i-1][1]);
             //translate(randPoints[i-1][0],randPoints[i-1][1]);
             if (randPoints[i-1][1] > randPoints[i][1])rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
             else rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
