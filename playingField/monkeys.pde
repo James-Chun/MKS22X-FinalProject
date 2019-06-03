@@ -46,9 +46,14 @@ class monkey {
   }
 
   void attack(ArrayList<balloon> balloons) {
-    for (int i = 0; i < balloons.size(); i++) {
-      if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeRadius / 2) {
-        balloons.get(i).takeDamage(1);
+    if (second() % 2 == 0) {
+      for (int i = 0; i < balloons.size(); i++) {
+        if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeRadius) {
+          if (balloons.get(i).getIsTargeted() == false) {
+            arrows.add(x, y, 1, balloons.get(i));
+            balloons.get(i).changeIsTargeted();
+          }
+        }
       }
     }
   }
@@ -120,13 +125,14 @@ class projectile {
   }
 
   void moveTo() {
-    if (second() % 1 == 0 && (Math.abs(x - b.getX()) >= 10 && Math.abs(y - b.getY()) >= 10)) {
+    if ((Math.abs(x - b.getX()) >= 10 && Math.abs(y - b.getY()) >= 10)) {
       x = x + (30 * (b.getX() - x)) / (dist(x, y, b.getX(), b.getY()));
       y = y + (30 * (b.getY() - y)) / (dist(x, y, b.getX(), b.getY()));
-    } else if (Math.abs(x - b.getX()) <= 10 && Math.abs(y - b.getY()) <= 10){
+    } else if (Math.abs(x - b.getX()) <= 10 && Math.abs(y - b.getY()) <= 10) {
       b.takeDamage(dmg);
+      b.changeIsTargeted();
       arrows.remove(this);
-      println(b.getHealth());
+      //println(b.getHealth());
     }
   }
 }

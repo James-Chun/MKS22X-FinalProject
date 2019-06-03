@@ -6,6 +6,7 @@ class balloon {
   int point; //keeping track of which point the balloon is heading towards
   int speed;
   int health;
+  boolean isTargeted;
 
   balloon(float x1, float y1, int p, int s, int he) {
     x = x1;
@@ -16,6 +17,7 @@ class balloon {
     point = p;
     speed = s;
     health = he;
+    isTargeted = false;
   }
 
   void display() {
@@ -58,7 +60,7 @@ class balloon {
     return health;
   }
   void move() {
-    println(point);
+    //println(point);
     if (second() % 1 == 0 && p.hasNextPoint(point)) {
       float nextX = p.getNextPoint(point)[0];
       float nextY = p.getNextPoint(point)[1];
@@ -70,6 +72,14 @@ class balloon {
     } else if (!p.hasNextPoint(point)) {
       balloons.remove(this);
     }
+  }
+  
+  void changeIsTargeted(){
+    isTargeted = !isTargeted;
+  }
+  
+  boolean getIsTargeted() {
+    return isTargeted;
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ balloon ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
