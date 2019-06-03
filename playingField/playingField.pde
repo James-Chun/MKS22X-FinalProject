@@ -30,9 +30,9 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
 
   p = new path(10); //creating path wit specified points on pathh    
   monkeys.add(new monkey(100, 100, 40, 40, p, 350)); // first thing added is always the logo
-  balloons.add(p.getStart()[0], p.getStart()[1], 4, 5);
-  balloons.add(p.getStart()[0], p.getStart()[1], 2, 5);
-  balloons.add(p.getStart()[0], p.getStart()[1], 1, 3);
+  balloons.add(p.getStart()[0], p.getStart()[1], 4, 1);
+  balloons.add(p.getStart()[0], p.getStart()[1], 2, 1);
+  balloons.add(p.getStart()[0], p.getStart()[1], 1, 1);
 }
 
 int firstXBoundary(int[][] points, int xValue) {
@@ -69,7 +69,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
-  println(second());
+  //println(frameCount);
   background(34, 139, 34);
   p.display();
   float easing = 1.0;
@@ -91,7 +91,6 @@ void draw() {
   }
 
   for (int i = 0; i < arrows.size(); i++) {    //arrow display
-    arrows.get(i).display();
     arrows.get(i).moveTo();
     //println("yes");
   }
