@@ -120,5 +120,8 @@ Devin - Monkey shooting works
       - Working on waves of ballooons
       - Just using timer to release balloons at intervals
       
-June 1, 2019
+June 2, 2019
+Devin - Monkeys can now attack the first balloon in their range
+      - Monkeys now shoot arrows from their location that travel to the target balloon dealing damage upon contact
+      - Reorganized tabs and moved movement methods from main to the respective classes to clean up the main tab
       
