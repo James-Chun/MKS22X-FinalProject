@@ -78,7 +78,6 @@ class balloon{
         pushMatrix();
         translate(-35, -40);
         fill(0);
-        rectMode(CENTER);
         //if (health == 100)tint(0, 153, 204);
         image(img, x, y, w, h);
         //untint!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -173,18 +172,21 @@ class path {
         path = loadImage("path.png");
     }
   
-    void display() {
+    void display(boolean p) {
         for (int i = 1; i < randPoints.length; i++) {
-            strokeWeight(20);            
+            strokeWeight(1);            
             pushMatrix();
             if (randPoints[i-1][1] > randPoints[i][1]){
               translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+              if (p)rect(-60 , 0 , 120, 20+ sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
             }
             else{
               translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
+              if (p)rect(-60 , 0 , 120, sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) );
             }
+            
             image(path, -20, -10, 40,20 + sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
             popMatrix();
             

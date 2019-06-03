@@ -7,6 +7,7 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
+boolean pathBoundaries;
 
 
 //----------------------------------------------------------------------------------------
@@ -74,7 +75,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
     background(34,139,34);
-    p.display();
+    p.display(pathBoundaries);
     float easing = 1.0;
     float x = monkeys.get(0).getX();
     float y = monkeys.get(0).getY();
@@ -157,6 +158,7 @@ void draw() {
 void mousePressed() {
     if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
         clickedOnLogo = true;
+        pathBoundaries = true;
     }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -169,10 +171,11 @@ void mousePressed() {
 void mouseReleased() {
   if (clickedOnLogo) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
-    if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 30) {
+    if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 60) {
       monkeys.add(new monkey(mouseX, mouseY, 40, 40, p));
     }
     clickedOnLogo = false;
+    pathBoundaries = false;
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
