@@ -166,29 +166,22 @@ class path {
     path(int totalPoints) {//creating path with specified number of points
         randPoints = new int[totalPoints][2];
         makePath();
-        path = loadImage("path.jpg");
+        path = loadImage("path.png");
     }
   
     void display() {
         for (int i = 1; i < randPoints.length; i++) {
-            //println(Arrays.toString(randPoints[i]));
-            strokeWeight(20);
-            //line(randPoints[i-1][0], randPoints[i-1][1], randPoints[i][0], randPoints[i][1]);
-            
+            strokeWeight(20);            
             pushMatrix();
-            //translate(randPoints[i-1][0],randPoints[i-1][1]);
-            if (randPoints[i-1][1] > randPoints[i][1])
-            {
-              translate(randPoints[i-1][0],randPoints[i-1][1]+20);
+            if (randPoints[i-1][1] > randPoints[i][1]){
+              translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate(PI + asin( -(randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
             }
-            else 
-            {
-              translate(randPoints[i-1][0]-20,randPoints[i-1][1]+10);
+            else{
+              translate(randPoints[i-1][0],randPoints[i-1][1]);
               rotate( asin( (randPoints[i-1][0] - randPoints[i][0]) / sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ) ) );
             }
-            //System.out.print(i + ":" + atan( (randPoints[i][0] - randPoints[i-1][0]) / (randPoints[i-1][1] - randPoints[i][1]) ) + "");
-            image(path, -5, 20, 40,10+ sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
+            image(path, -20, -10, 40,20 + sqrt((randPoints[i-1][0]-randPoints[i][0])*(randPoints[i-1][0]-randPoints[i][0]) + (randPoints[i-1][1]-randPoints[i][1])*(randPoints[i-1][1]-randPoints[i][1]) ));
             popMatrix();
             
         }
