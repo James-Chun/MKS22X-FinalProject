@@ -126,7 +126,7 @@ class projectile {
 
   void moveTo() {
     while ((Math.abs(x - b.getX()) >= 10 && Math.abs(y - b.getY()) >= 10)) {
-      if (frameCount % 1 == 0) {
+      if (frameCount % 10 == 0) {
         this.display();
         x = x + (30 * (b.getX() - x)) / (dist(x, y, b.getX(), b.getY()));
         y = y + (30 * (b.getY() - y)) / (dist(x, y, b.getX(), b.getY()));
