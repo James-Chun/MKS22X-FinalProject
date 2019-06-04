@@ -1,7 +1,7 @@
 # MKS22X-FinalProject
 
 -~-DESCRIPTION-~-
-Balloon tower defense with enemies (balloons) entering from a designated zone and moving through a path to the end. The player will be tasked with placing towers (monkeys) along this path to stop the advance of the enemies. The player will be provided with a source of income to allow him/her to place more towers and upgrade current towers. Choose from a variety of towers to form the best defense. 
+Balloon tower defense with enemies (balloons) entering from a designated zone and moving through a path to the end. The player will be tasked with placing towers (monkeys) along this path to stop the advance of the enemies. The player will gain income by popping balloons  allowing him/her to place more towers.
 
 
 -~-HOW TO PLAY-~-
@@ -124,4 +124,15 @@ June 2, 2019
 Devin - Monkeys can now attack the first balloon in their range
       - Monkeys now shoot arrows from their location that travel to the target balloon dealing damage upon contact
       - Reorganized tabs and moved movement methods from main to the respective classes to clean up the main tab
+      
+June 3, 2019
+Devin - Made monkey attacking smoother
+      - Worked on ballon taking damage and popping and list manipulation
+   
+June 4, 2019
+Devin - Added 15 waves of balloons and a play button to send these balloons once the previous wave has been beat
+      - created 5 different kind of balloons with varying speed and health
+      - smoothed out monkey attack even more
+      - added a speed up button from 2x-4x the speed affecting both monkeys and balloons
+      - made the range display of the monkey turn red when is is dragged from the shop over the path signaling that the monkey cannot be         placed there
       
