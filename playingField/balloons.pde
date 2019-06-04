@@ -13,7 +13,7 @@ class balloon {
     y = y1;
     w = 70;
     h = 80;
-    img = loadImage("balloon.png");
+    img = loadImage("whiteBalloon.png");
     point = p;
     speed = s;
     health = he;
@@ -23,8 +23,12 @@ class balloon {
   void display() {
     pushMatrix();
     translate(-35, -40);
-    fill(0);
-    //if (health == 100)tint(0, 153, 204);
+    fill(0,255,0);
+    if (health == 5)tint(255, 102, 178);
+    if (health == 4)tint(255, 255, 0);
+    if (health == 3)tint(0, 255, 0);
+    if (health == 2)tint(0, 0, 255);
+    if (health == 1)tint(255, 0, 0);
     image(img, x, y, w, h);
     //untint!!!!!!!!!!!!!!!!!!!!!!!!!!!
     popMatrix();
@@ -54,6 +58,7 @@ class balloon {
 
   void takeDamage(int dmg) {
     health -= dmg;
+    speed--;
   }
   int getHealth() {
     return health;
