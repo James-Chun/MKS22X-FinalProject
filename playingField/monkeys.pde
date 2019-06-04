@@ -6,6 +6,7 @@ class monkey {
   PImage img;
   float rangeDiameter;
   boolean isAttacking;
+  int hasten;
 
   monkey(float xPos, float yPos, float wid, float hei, path p, float range) {
     x = xPos;
@@ -16,6 +17,7 @@ class monkey {
     img = loadImage("dartMonkey.png");
     rangeDiameter = range;
     isAttacking = false;
+    hasten = 1;
   }
 
   float getX() {
@@ -23,6 +25,10 @@ class monkey {
   }
   float getY() {
     return y;
+  }
+  
+  void setHasten(int h) {
+    hasten = h;
   }
 
   void display() {
@@ -52,7 +58,7 @@ class monkey {
   }
 
   void attack(ArrayList<balloon> balloons) {
-    if (frameCount % 40 == 0) {
+    if (frameCount % (40 / hasten) == 0) {
       for (int i = 0; i < balloons.size(); i++) {
         if (!isAttacking && dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeDiameter / 2) {
           if (balloons.get(i).getIsTargeted() == false) {

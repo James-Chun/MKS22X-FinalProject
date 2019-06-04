@@ -132,10 +132,16 @@ void mousePressed() {
       for (int i = 0; i < balloons.size(); i++) {
         balloons.get(i).doubleSpeed();
       }
+      for (int i = 0; i < monkeys.size(); i++) {
+        monkeys.get(i).setHasten(2);
+      }
       doubleSpeeded = !doubleSpeeded;
     } else {
       for (int i = 0; i < balloons.size(); i++) {
         balloons.get(i).halfSpeed();
+      }
+      for (int i = 0; i < monkeys.size(); i++) {
+        monkeys.get(i).setHasten(1);
       }
       doubleSpeeded = !doubleSpeeded;
     }
