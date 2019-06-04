@@ -7,6 +7,7 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
+int wave;
 
 
 //----------------------------------------------------------------------------------------
@@ -27,9 +28,11 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   monkeys = new ArrayList<monkey>();
   balloons = new allBalloons();
   arrows = new allProjectiles();
-
-  p = new path(10); //creating path wit specified points on pathh    
+  wave = 0;
+  p = new path(10); //creating path wit specified points on path
+  
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
+  
   balloons.add(p.getStart()[0], p.getStart()[1], 5, 5);
   balloons.add(p.getStart()[0], p.getStart()[1], 4, 4);
   balloons.add(p.getStart()[0], p.getStart()[1], 3, 3);
@@ -71,6 +74,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 void draw() {
   background(34, 139, 34);
   p.display();
+  image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
   float easing = 1.0;
   float x = monkeys.get(0).getX();
   float y = monkeys.get(0).getY();
@@ -122,6 +126,9 @@ void draw() {
 void mousePressed() {
   if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
     clickedOnLogo = true;
+  }
+  if (mouseX <= width && mouseX >= 1350 && mouseY <= height && mouseY >= 700) {
+    updateWave();
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
