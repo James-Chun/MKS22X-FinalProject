@@ -24,7 +24,6 @@ class balloon {
     pushMatrix();
     translate(-35, -40);
     fill(0);
-    rectMode(CENTER);
     //if (health == 100)tint(0, 153, 204);
     image(img, x, y, w, h);
     //untint!!!!!!!!!!!!!!!!!!!!!!!!!!!
