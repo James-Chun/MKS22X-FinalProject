@@ -6,8 +6,8 @@ ArrayList<monkey> monkeys;
 allBalloons balloons;
 allProjectiles arrows;
 path p;
-boolean clickedOnLogo, doubleSpeeded;
-int wave;
+boolean clickedOnLogo;
+int wave, speedClicks;
 
 
 //----------------------------------------------------------------------------------------
@@ -30,7 +30,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   arrows = new allProjectiles();
   wave = 0;
   p = new path(10); //creating path wit specified points on path
-  doubleSpeeded = false;
+  speedClicks = 0;
 
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
 }
@@ -128,22 +128,38 @@ void mousePressed() {
     updateWave();
   }
   if (mouseX <= 1350 && mouseX >= 1200 && mouseY <= height && mouseY >= 700) {
-    if (!doubleSpeeded) {
+    if (speedClicks == 0) {
       for (int i = 0; i < balloons.size(); i++) {
         balloons.get(i).doubleSpeed();
       }
       for (int i = 0; i < monkeys.size(); i++) {
         monkeys.get(i).setHasten(2);
       }
-      doubleSpeeded = !doubleSpeeded;
-    } else {
+      speedClicks = 1;
+    } else if (speedClicks == 1) {
       for (int i = 0; i < balloons.size(); i++) {
-        balloons.get(i).halfSpeed();
+        balloons.get(i).tripleSpeed();
+      }
+      for (int i = 0; i < monkeys.size(); i++) {
+        monkeys.get(i).setHasten(3);
+      }
+      speedClicks = 2;
+    } else if (speedClicks == 2) {
+      for (int i = 0; i < balloons.size(); i++) {
+        balloons.get(i).quadSpeed();
+      }
+      for (int i = 0; i < monkeys.size(); i++) {
+        monkeys.get(i).setHasten(4);
+      }
+      speedClicks = 3;
+    } else if (speedClicks == 3) {
+      for (int i = 0; i < balloons.size(); i++) {
+        balloons.get(i).fourthSpeed();
       }
       for (int i = 0; i < monkeys.size(); i++) {
         monkeys.get(i).setHasten(1);
       }
-      doubleSpeeded = !doubleSpeeded;
+      speedClicks = 0;
     }
   }
 }

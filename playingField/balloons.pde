@@ -64,8 +64,16 @@ class balloon {
     speed *= 2;
   }
   
-  void halfSpeed() {
-    speed /= 2;
+  void tripleSpeed() {
+    speed = (speed / 2) * 3;
+  }
+  
+  void quadSpeed() {
+    speed = (speed / 3) * 4;
+  }
+  
+  void fourthSpeed() {
+    speed /= 4;
   }
   
   void takeDamage(int dmg) {
