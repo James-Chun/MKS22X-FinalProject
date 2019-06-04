@@ -55,7 +55,15 @@ class balloon {
   float getSpeed() {
     return speed;
   }
-
+  
+  void doubleSpeed() {
+    speed *= 2;
+  }
+  
+  void halfSpeed() {
+    speed /= 2;
+  }
+  
   void takeDamage(int dmg) {
     health -= dmg;
     speed--;

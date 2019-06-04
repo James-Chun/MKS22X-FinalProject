@@ -6,7 +6,7 @@ ArrayList<monkey> monkeys;
 allBalloons balloons;
 allProjectiles arrows;
 path p;
-boolean clickedOnLogo;
+boolean clickedOnLogo, doubleSpeeded;
 int wave;
 
 
@@ -30,6 +30,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   arrows = new allProjectiles();
   wave = 0;
   p = new path(10); //creating path wit specified points on path
+  doubleSpeeded = false;
 
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
 }
@@ -63,52 +64,6 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
 
-void updateWave() {
-  int spacing = 1;
-  if (balloons.size() == 0) {
-    wave++;
-    if (wave == 1) {
-      balloons.add(p.getStart()[0], p.getStart()[1], 1, 1); // first balloon added doesnt get changed by spacing
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-      spacing++;
-      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
-    }
-  }
-}
 
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
@@ -116,6 +71,7 @@ void draw() {
   background(34, 139, 34);
   p.display();
   image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
+  image(loadImage("fastForwardButton.png"), 1200, 700, 160, 130);
   float easing = 1.0;
   float x = monkeys.get(0).getX();
   float y = monkeys.get(0).getY();
@@ -170,6 +126,19 @@ void mousePressed() {
   }
   if (mouseX <= width && mouseX >= 1350 && mouseY <= height && mouseY >= 700) {
     updateWave();
+  }
+  if (mouseX <= 1350 && mouseX >= 1200 && mouseY <= height && mouseY >= 700) {
+    if (!doubleSpeeded) {
+      for (int i = 0; i < balloons.size(); i++) {
+        balloons.get(i).doubleSpeed();
+      }
+      doubleSpeeded = !doubleSpeeded;
+    } else {
+      for (int i = 0; i < balloons.size(); i++) {
+        balloons.get(i).halfSpeed();
+      }
+      doubleSpeeded = !doubleSpeeded;
+    }
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
