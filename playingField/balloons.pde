@@ -4,11 +4,11 @@ class balloon {
   float x, y, w, h;
   PImage img;
   int point; //keeping track of which point the balloon is heading towards
-  int speed;
+  float speed;
   int health;
   boolean isTargeted;
 
-  balloon(float x1, float y1, int p, int s, int he) {
+  balloon(float x1, float y1, int p, float s, int he) {
     x = x1;
     y = y1;
     w = 70;
@@ -52,7 +52,7 @@ class balloon {
     point = newPoint;
   }
 
-  int getSpeed() {
+  float getSpeed() {
     return speed;
   }
 
@@ -102,7 +102,7 @@ class allBalloons {
   }
 
 
-  void add(float x, float y, int speed, int health) {
+  void add(float x, float y, float speed, int health) {
     balloons.add(new balloon(x, y, 0, speed, health));
   }
 

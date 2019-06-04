@@ -30,12 +30,8 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   arrows = new allProjectiles();
   wave = 0;
   p = new path(10); //creating path wit specified points on path
-  
+
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
-  
-  balloons.add(p.getStart()[0], p.getStart()[1], 5, 5);
-  balloons.add(p.getStart()[0], p.getStart()[1], 4, 4);
-  balloons.add(p.getStart()[0], p.getStart()[1], 3, 3);
 }
 
 int firstXBoundary(int[][] points, int xValue) {
@@ -67,7 +63,52 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ initialize ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
 //----------------------------------------------------------------------------------------
 
-
+void updateWave() {
+  int spacing = 1;
+  if (balloons.size() == 0) {
+    wave++;
+    if (wave == 1) {
+      balloons.add(p.getStart()[0], p.getStart()[1], 1, 1); // first balloon added doesnt get changed by spacing
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+      spacing++;
+      balloons.add(p.getStart()[0] - (p.getPoint(1)[0] - p.getPoint(0)[0]) / 5 * spacing, p.getStart()[1] - (p.getPoint(1)[1] - p.getPoint(0)[1]) / 5 * spacing, 1, 1);
+    }
+  }
+}
 
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
