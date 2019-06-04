@@ -5,6 +5,7 @@ class monkey {
   float x, y, w, h;
   PImage img;
   float rangeDiameter;
+  boolean isAttacking;
 
   monkey(float xPos, float yPos, float wid, float hei, path p, float range) {
     x = xPos;
@@ -14,6 +15,7 @@ class monkey {
     allPoints = p.getRandPoints();
     img = loadImage("dartMonkey.png");
     rangeDiameter = range;
+    isAttacking = false;
   }
 
   float getX() {
@@ -52,14 +54,19 @@ class monkey {
   void attack(ArrayList<balloon> balloons) {
     if (frameCount % 40 == 0) {
       for (int i = 0; i < balloons.size(); i++) {
-        if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeDiameter / 2) {
+        if (!isAttacking && dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeDiameter / 2) {
           if (balloons.get(i).getIsTargeted() == false) {
-            arrows.add(x, y, 1, balloons.get(i));
+            arrows.add(x, y, 1, balloons.get(i), this);
             balloons.get(i).changeIsTargeted();
+            changeIsAttacking();
           }
         }
       }
     }
+  }
+  
+  void changeIsAttacking() {
+    isAttacking = !isAttacking;
   }
 }
 
@@ -70,8 +77,8 @@ class allProjectiles {
     arrows = new ArrayList<projectile>();
   }
 
-  void add(float x, float y, int d, balloon b) {
-    arrows.add(new projectile(x, y, d, b));
+  void add(float x, float y, int d, balloon b, monkey m) {
+    arrows.add(new projectile(x, y, d, b, m));
   }
 
 
@@ -95,13 +102,15 @@ class projectile {
   int dmg;
   PImage img;
   balloon b;
+  monkey owner;
 
-  projectile(float x1, float y1, int d, balloon target) {
+  projectile(float x1, float y1, int d, balloon target, monkey m) {
     x = x1;
     y = y1;
     dmg = d;
     img = loadImage("arrow.png");
     b = target;
+    owner = m;
   }
 
   void display() {
@@ -138,6 +147,7 @@ class projectile {
     }
     b.takeDamage(dmg);
     b.changeIsTargeted();
+    owner.changeIsAttacking();
     arrows.remove(this);
   }
 }
