@@ -34,6 +34,7 @@ class path {
 
   void display() {
     strokeWeight(0);
+    tint(255);
     for (int i = 1; i < randPoints.length; i++) {       
       pushMatrix();
       if (randPoints[i-1][1] > randPoints[i][1]) {

@@ -26,7 +26,7 @@ class monkey {
   void display() {
     pushMatrix();
     translate(w/2 * -1, h/2 * -1);
-    fill(255);
+    tint(255);
     image(img, x, y, w, h);
     popMatrix();
   }
@@ -106,7 +106,7 @@ class projectile {
 
   void display() {
     pushMatrix();
-    fill(0);
+    tint(255);
     translate(-15, -15);
     image(img, x, y, 30, 30);
     popMatrix();
