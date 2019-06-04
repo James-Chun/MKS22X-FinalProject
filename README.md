@@ -100,3 +100,28 @@ Devin - Finally got monkey placement to work
       - Problem was using the wrong variables in the calculations
       - Monkeys can now determine which line to compare to and can determine distance from that line and whether or not it is 
         touching said line
+
+May 30, 2019
+James - Began working on path aesthetics
+      - Will import picture of path at each randPoint, make it as long as distance to next point, and rotate to line up
+      - Will first have to understand rotate and translate
+
+Devin - Finishing up monkey placement (centering)
+      - Working on monkeys shooting at constant rate
+      - Just need to develop timer (probably based on frameCount) and making new projectile at monkeys at intervals
+      
+May 31, 2019
+James - Still working on path aesthetics
+      - Image makes image from top left corner so translate to that corner plus more to center onto top middle
+      - Rotate world to line up with next point (the y-plane is flipped)
+      - Then make image
+      
+Devin - Monkey shooting works
+      - Working on waves of ballooons
+      - Just using timer to release balloons at intervals
+      
+June 2, 2019
+Devin - Monkeys can now attack the first balloon in their range
+      - Monkeys now shoot arrows from their location that travel to the target balloon dealing damage upon contact
+      - Reorganized tabs and moved movement methods from main to the respective classes to clean up the main tab
+      
