@@ -8,16 +8,20 @@ class balloon {
   int health;
   boolean isTargeted;
 
-  balloon(float x1, float y1, int p, float s, int he) {
+  balloon(float x1, float y1, int p, int he) {
     x = x1;
     y = y1;
     w = 70;
     h = 80;
     img = loadImage("whiteBalloon.png");
     point = p;
-    speed = s;
     health = he;
     isTargeted = false;
+    if (health == 1) {
+      speed = 1.5;
+    } else {
+      speed = health;
+    }
   }
 
   void display() {
@@ -110,8 +114,8 @@ class allBalloons {
   }
 
 
-  void add(float x, float y, float speed, int health) {
-    balloons.add(new balloon(x, y, 0, speed, health));
+  void add(float x, float y, int health) {
+    balloons.add(new balloon(x, y, 0, health));
   }
 
 
