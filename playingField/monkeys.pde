@@ -4,7 +4,7 @@ class monkey {
   int[][] allPoints;
   float x, y, w, h;
   PImage img;
-  float rangeRadius;
+  float rangeDiameter;
 
   monkey(float xPos, float yPos, float wid, float hei, path p, float range) {
     x = xPos;
@@ -12,8 +12,8 @@ class monkey {
     w = wid;
     h = hei;
     allPoints = p.getRandPoints();
-    img = loadImage("monkey.png");
-    rangeRadius = range;
+    img = loadImage("dartMonkey.png");
+    rangeDiameter = range;
   }
 
   float getX() {
@@ -39,16 +39,20 @@ class monkey {
     popMatrix();
   }
 
-  void rangeDisplay(float x1, float y1) {
+  void rangeDisplay(float x1, float y1, String c) {
     strokeWeight(0);
-    fill(200, 10);
-    ellipse(x1, y1, rangeRadius, rangeRadius);
+    if (c.equals("red")) {
+      fill(255,0,0,100);
+    } else {
+      fill(20, 60);
+    }
+    ellipse(x1, y1, rangeDiameter, rangeDiameter);
   }
 
   void attack(ArrayList<balloon> balloons) {
     if (frameCount % 40 == 0) {
       for (int i = 0; i < balloons.size(); i++) {
-        if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeRadius) {
+        if (dist(balloons.get(i).getX(), balloons.get(i).getY(), x, y) <= rangeDiameter / 2) {
           if (balloons.get(i).getIsTargeted() == false) {
             arrows.add(x, y, 1, balloons.get(i));
             balloons.get(i).changeIsTargeted();
