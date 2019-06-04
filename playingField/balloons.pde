@@ -72,11 +72,11 @@ class balloon {
       balloons.remove(this);
     }
   }
-  
-  void changeIsTargeted(){
+
+  void changeIsTargeted() {
     isTargeted = !isTargeted;
   }
-  
+
   boolean getIsTargeted() {
     return isTargeted;
   }

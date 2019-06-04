@@ -7,7 +7,6 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
-boolean pathBoundaries;
 
 
 //----------------------------------------------------------------------------------------
@@ -70,70 +69,43 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
-    background(34,139,34);
-    p.display(pathBoundaries);
-    float easing = 1.0;
-    float x = monkeys.get(0).getX();
-    float y = monkeys.get(0).getY();
-    
-    
-    for (int i = 0; i < balloons.size(); i++) {    //balloon display
-      balloon currentBalloon = balloons.get(i);
-      if ( currentBalloon.getHealth() == 0) balloons.remove(i);
-      currentBalloon.display();
-      currentBalloon.move();
-    }
-    
-    
-    for (int i = 0; i < monkeys.size(); i++) {    //monkey display
-        monkeys.get(i).display();
-        if (i > 0) {
-            monkeys.get(i).attack(balloons.getAllBalloons());
-        }
-    }
-    
-    
-    /*for (int i = 0; i < arrows.size(); i++){    //arrow display
-        projectile currentArrow = arrows.get(i);
-        
-        float thisX = currentArrow.getX();
-        float thisY = currentArrow.getY();
-        float nextX = balloons.get(i).getX();
-        float nextY = balloons.get(i).getY();
-        
-        arrows.get(i).display( nextX - thisX , dist(thisX,thisY,nextX,nextY) );
-        
-        if ( frameCount%1==0 && ( Math.abs( thisX - nextX ) >= 10 && Math.abs( thisY - nextY ) >= 10 ) ){    //arrow movement
-                 
-            //each arrow tracks balloon's coords and continously moves towards them  
-            currentArrow.setX( thisX + (30 * (nextX - thisX))/(dist(thisX,thisY,nextX,nextY)) );
-            currentArrow.setY( thisY + (30 * (nextY - thisY))/(dist(thisX,thisY,nextX,nextY)) );
-        }
-        else if ( Math.abs( currentArrow.getX() - balloons.get(i).getX() ) <= 10 && Math.abs( currentArrow.getY() - balloons.get(i).getY() ) <= 10 ){
-            //System.out.println(balloons.get(i).getHealth() );
-            balloons.get(i).takeDamage( currentArrow.getDamage() );
-            //System.out.println(balloons.get(i).getHealth() );
-            arrows.remove(i);
-        }
-    }*/
+  background(34, 139, 34);
+  p.display();
+  float easing = 1.0;
+  float x = monkeys.get(0).getX();
+  float y = monkeys.get(0).getY();
 
 
+  for (int i = 0; i < balloons.size(); i++) {    //balloon display
+    balloon currentBalloon = balloons.get(i);
+    if ( currentBalloon.getHealth() == 0) balloons.remove(i);
+    currentBalloon.display();
+    currentBalloon.move();
+  }
 
-    for (int i = 0; i < arrows.size(); i++) {    //arrow display
-      arrows.get(i).moveTo();
-      //println("yes");
-    }
 
-    if (clickedOnLogo) {
-      float targetX = mouseX;
-      float dx = targetX - x;
-      x += dx * easing;
-      float targetY = mouseY;
-      float dy = targetY - y;
-      y += dy * easing;
-      monkeys.get(0).display(mouseX, mouseY);
-      monkeys.get(0).rangeDisplay(mouseX, mouseY);
+  for (int i = 0; i < monkeys.size(); i++) {    //monkey display
+    monkeys.get(i).display();
+    if (i > 0) {
+      monkeys.get(i).attack(balloons.getAllBalloons());
     }
+  }
+
+  for (int i = 0; i < arrows.size(); i++) {    //arrow display
+    arrows.get(i).moveTo();
+    //println("yes");
+  }
+
+  if (clickedOnLogo) {
+    float targetX = mouseX;
+    float dx = targetX - x;
+    x += dx * easing;
+    float targetY = mouseY;
+    float dy = targetY - y;
+    y += dy * easing;
+    monkeys.get(0).display(mouseX, mouseY);
+    monkeys.get(0).rangeDisplay(mouseX, mouseY);
+  }
 }
 
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ draw ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
@@ -144,10 +116,9 @@ void draw() {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mousePressed() {
-    if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
-        clickedOnLogo = true;
-        pathBoundaries = true;
-    }
+  if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
+    clickedOnLogo = true;
+  }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //----------------------------------------------------------------------------------------
@@ -163,7 +134,6 @@ void mouseReleased() {
       monkeys.add(new monkey(mouseX, mouseY, 40, 40, p, 150));
     }
     clickedOnLogo = false;
-    pathBoundaries = false;
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
