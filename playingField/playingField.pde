@@ -72,6 +72,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
   background(34, 139, 34);
+  Collections.sort(balloons.getAllBalloons(), Collections.reverseOrder()); // this is very taxing and makes the program stop at a certain stage
   p.display();
   fill(255);
   textSize(50);

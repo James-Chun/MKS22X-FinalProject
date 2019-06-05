@@ -1,6 +1,6 @@
 import java.util.*;
 
-class balloon {
+class balloon implements Comparable<balloon>{
   float x, y, w, h;
   PImage img;
   int point; //keeping track of which point the balloon is heading towards
@@ -105,6 +105,10 @@ class balloon {
 
   boolean getIsTargeted() {
     return isTargeted;
+  }
+  
+  int compareTo(balloon b) {
+    return Double.compare(this.x, b.getX());
   }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ balloon ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ 
