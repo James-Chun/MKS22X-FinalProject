@@ -72,7 +72,7 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void draw() {
   background(34, 139, 34);
-  Collections.sort(balloons.getAllBalloons(), Collections.reverseOrder()); // this is very taxing and makes the program stop at a certain stage
+  //Collections.sort(balloons.getAllBalloons(), Collections.reverseOrder()); // this is very taxing and makes the program stop at a certain stage
   p.display();
   fill(255);
   textSize(50);
@@ -198,6 +198,15 @@ void mouseReleased() {
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 50) {
       monkeys.add(new monkey(mouseX, mouseY, 150, 150, p, 400));
       money -= 200;
+      if (speedClicks == 0) {
+        monkeys.get(monkeys.size() - 1).setHasten(1);
+      } else if (speedClicks == 1) {
+        monkeys.get(monkeys.size() - 1).setHasten(2);
+      } else if (speedClicks == 2) {
+        monkeys.get(monkeys.size() - 1).setHasten(3);
+      } else if (speedClicks == 3) {
+        monkeys.get(monkeys.size() - 1).setHasten(4);
+      }
     }
   }
   broke = false;
