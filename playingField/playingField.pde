@@ -33,7 +33,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   p = new path(10); //creating path wit specified points on path
   speedClicks = 0;
   hp = 100;
-  money = 650;
+  money = 450;
   broke = false;
 
   monkeys.add(new monkey(40, height - 40, 150, 150, p, 400)); // first thing added is always the logo
@@ -77,6 +77,7 @@ void draw() {
   fill(255);
   textSize(50);
   text("Health: " + hp, width - 300, 70);
+  text("$" + 200, 65, height - 30);
   if (broke) fill(255,0,0);
   text("$: " + money, 15, 70);
   image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
