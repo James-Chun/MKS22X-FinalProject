@@ -6,8 +6,8 @@ ArrayList<monkey> monkeys;
 allBalloons balloons;
 allProjectiles arrows;
 path p;
-boolean clickedOnLogo;
-int wave, speedClicks, hp;
+boolean clickedOnLogo, broke;
+int wave, speedClicks, hp, money;
 
 
 //----------------------------------------------------------------------------------------
@@ -33,6 +33,8 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   p = new path(10); //creating path wit specified points on path
   speedClicks = 0;
   hp = 100;
+  money = 650;
+  broke = false;
 
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
 }
@@ -75,6 +77,8 @@ void draw() {
   fill(255);
   textSize(50);
   text("Health: " + hp, width - 300, 70);
+  if (broke) fill(255,0,0);
+  text("$: " + money, 15, 70);
   image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
   image(loadImage("fastForwardButton.png"), 1200, 700, 160, 130);
   float easing = 1.0;
@@ -131,6 +135,7 @@ void draw() {
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mousePressed() {
   if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
+    if (money < 200) broke = true;
     clickedOnLogo = true;
   }
   if (mouseX <= width && mouseX >= 1350 && mouseY <= height && mouseY >= 700) {
@@ -180,13 +185,15 @@ void mousePressed() {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mouseReleased() {
-  if (clickedOnLogo) {
+  if (clickedOnLogo && money >= 200) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 50) {
       monkeys.add(new monkey(mouseX, mouseY, 150, 150, p, 350));
+      money -= 200;
     }
-    clickedOnLogo = false;
   }
+  broke = false;
+  clickedOnLogo = false;
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //----------------------------------------------------------------------------------------

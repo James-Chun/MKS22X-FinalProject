@@ -2,6 +2,7 @@ void updateWave() {
   int spacing = 1;
   if (balloons.size() == 0) {
     wave++;
+    money += 100 + wave;
     speedClicks = 0;
     if (wave == 1) {
       balloons.add(p.getStart()[0], p.getStart()[1], 1); 

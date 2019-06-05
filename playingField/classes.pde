@@ -28,9 +28,7 @@ class path {
       }
     }
     for (int r = 0; r < randPoints.length; r++) {
-      if (r == 0 || r == 1) {
-        randPoints[r][1] = (int) random(0, height - 250);
-      } else if (r == randPoints.length - 1 || r == randPoints.length - 2) {
+      if (r == 0 || r == 1 || r == randPoints.length - 1 || r == randPoints.length - 2) {
         randPoints[r][1] = (int) random(150, height - 250);
       } else {
         randPoints[r][1] = (int) random(height);

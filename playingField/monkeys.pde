@@ -154,6 +154,7 @@ class projectile {
     b.takeDamage(dmg);
     b.changeIsTargeted();
     owner.changeIsAttacking();
+    money++;
     arrows.remove(this);
   }
 }
