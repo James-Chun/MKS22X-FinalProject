@@ -36,7 +36,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   money = 650;
   broke = false;
 
-  monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
+  monkeys.add(new monkey(40, height - 40, 150, 150, p, 400)); // first thing added is always the logo
 }
 
 int firstXBoundary(int[][] points, int xValue) {
@@ -134,7 +134,7 @@ void draw() {
 //----------------------------------------------------------------------------------------
 //vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 void mousePressed() {
-  if (mouseX <= 140 && mouseX >= 60 && mouseY <= 140 && mouseY >= 60) {
+  if (mouseX <= 60 && mouseX >= 20 && mouseY <= height - 20 && mouseY >= height - 70) {
     if (money < 200) broke = true;
     clickedOnLogo = true;
   }
@@ -188,7 +188,7 @@ void mouseReleased() {
   if (clickedOnLogo && money >= 200) {
     //println(distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY));
     if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) > 50) {
-      monkeys.add(new monkey(mouseX, mouseY, 150, 150, p, 350));
+      monkeys.add(new monkey(mouseX, mouseY, 150, 150, p, 400));
       money -= 200;
     }
   }
