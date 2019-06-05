@@ -176,6 +176,13 @@ void mousePressed() {
       speedClicks = 0;
     }
   }
+  if (mouseX <= 20 && mouseX >= 0 && mouseY <= 20 && mouseY >= 0) {
+    balloons.add(p.getStart()[0], p.getStart()[1], 1); 
+    balloons.add(p.getStart()[0], p.getStart()[1], 2); 
+    balloons.add(p.getStart()[0], p.getStart()[1], 3); 
+    balloons.add(p.getStart()[0], p.getStart()[1], 4); 
+    balloons.add(p.getStart()[0], p.getStart()[1], 5); 
+  }
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //----------------------------------------------------------------------------------------
