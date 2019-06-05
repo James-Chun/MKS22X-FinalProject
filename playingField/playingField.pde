@@ -40,20 +40,19 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
 }
 
 int firstXBoundary(int[][] points, int xValue) {
+  //println(points.length);
   for (int i = 1; i < points.length; i++) {
     if (points[i][0] >= xValue) {
       //println(i - 1);
       return i - 1;
     }
   }
-  return -1;
+  return 8;
 }
 
 float distanceFromPointToLine(int[][] points, int index, float x, float y) {
   int[] firstPoint = points[index];
   int[] secondPoint = points[index+1];
-  //int dy = secondPoint[1] - firstPoint[1];
-  //int dx = secondPoint[0] - firstPoint[0];
   return distanceFromPointToLineHelper(firstPoint, secondPoint, x, y);
 }
 
@@ -78,7 +77,7 @@ void draw() {
   textSize(50);
   text("Health: " + hp, width - 300, 70);
   text("$" + 200, 65, height - 30);
-  if (broke) fill(255,0,0);
+  if (broke) fill(255, 0, 0);
   text("$: " + money, 15, 70);
   image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
   image(loadImage("fastForwardButton.png"), 1200, 700, 160, 130);
