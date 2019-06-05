@@ -21,14 +21,20 @@ class path {
     for (int r = 0; r < randPoints.length; r++) {
       if (r == 0) {
         randPoints[r][0] = 0;
-      } else if (r == randPoints.length -1) {
+      } else if (r == randPoints.length - 1) {
         randPoints[r][0] = width;
       } else {
         randPoints[r][0] = (int) random(spacing * r, spacing * (r+1));
       }
     }
     for (int r = 0; r < randPoints.length; r++) {
-      randPoints[r][1] = (int) random(height);
+      if (r == 0 || r == 1) {
+        randPoints[r][1] = (int) random(0, height - 250);
+      } else if (r == randPoints.length - 1 || r == randPoints.length - 2) {
+        randPoints[r][1] = (int) random(60, height - 250);
+      } else {
+        randPoints[r][1] = (int) random(height);
+      }
     }
   }
 
