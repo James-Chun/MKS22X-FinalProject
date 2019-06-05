@@ -95,6 +95,7 @@ class balloon {
       }
     } else if (!p.hasNextPoint(point)) {
       balloons.remove(this);
+      hp -= this.health;
     }
   }
 

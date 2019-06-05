@@ -7,7 +7,7 @@ allBalloons balloons;
 allProjectiles arrows;
 path p;
 boolean clickedOnLogo;
-int wave, speedClicks;
+int wave, speedClicks, hp;
 
 
 //----------------------------------------------------------------------------------------
@@ -15,6 +15,7 @@ int wave, speedClicks;
 void setup() { //setting the frameRate, size of the world, and initializing
   frameRate(60);
   size(1500, 800);
+  //fullScreen();
   initialize();
 }
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ setup ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -31,6 +32,7 @@ void initialize() { // creating the list of monkeys and balloons as well as the 
   wave = 0;
   p = new path(10); //creating path wit specified points on path
   speedClicks = 0;
+  hp = 100;
 
   monkeys.add(new monkey(100, 100, 150, 150, p, 350)); // first thing added is always the logo
 }
@@ -70,6 +72,9 @@ float distanceFromPointToLineHelper(int[] p1, int[] p2, float x, float y) {
 void draw() {
   background(34, 139, 34);
   p.display();
+  fill(255);
+  textSize(50);
+  text("Health: " + hp, width - 300, 70);
   image(loadImage("playButton.png"), 1350, 700, 160, 130); // play button
   image(loadImage("fastForwardButton.png"), 1200, 700, 160, 130);
   float easing = 1.0;
@@ -110,6 +115,10 @@ void draw() {
     } else {
       monkeys.get(0).rangeDisplay(mouseX, mouseY, "clear");
     }
+  }
+  if (hp <= 0) {
+    println("You Lose");
+    exit();
   }
 }
 
