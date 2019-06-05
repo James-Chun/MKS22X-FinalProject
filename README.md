@@ -1,16 +1,16 @@
 # MKS22X-FinalProject
 
 -~-DESCRIPTION-~-
-Balloon tower defense with enemies (balloons) entering from a designated zone and moving through a path to the end. The player will be tasked with placing towers (monkeys) along this path to stop the advance of the enemies. The player will gain income by popping balloons  allowing him/her to place more towers.
+Balloon tower defense with enemies (balloons) entering from a designated zone and moving through a path to the end. The player will be tasked with placing towers (monkeys) along this path to stop the advance of the enemies. The player will gain income by popping balloons  allowing him/her to place more towers. 
+
 
 
 -~-HOW TO PLAY-~-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+1. Start up the Game
+2. Start placing monkeys
+3. Buy more monkeys
+4. Don't lose
+5. Don't get too cocky now there's a lot of balloons heading your way.
 
 
 
@@ -58,7 +58,7 @@ James - Finished balloon movement
       
 Devin - Figured out how to check if monkey is on the line
       - Algorithm will check the monkey's x-coord with that of every point on the line, find which two points it is in between.
-      - Using that segment of the path, the monkey will "drop a perpendicular" to that segment and see if its distance to that            
+      - Using that segment of the path, the monkey will "drop a perpendicular" to that segment and see if its distance to that           
         segement is allowable. Depending on this information it will place the monkey.
       
 May 24, 2019
@@ -112,7 +112,7 @@ Devin - Finishing up monkey placement (centering)
       
 May 31, 2019
 James - Still working on path aesthetics
-      - Image makes image from top left corner so translate to that corner plus more to center onto top middle
+      - Make image from top left corner so translate to that corner plus more to center onto top middle
       - Rotate world to line up with next point (the y-plane is flipped)
       - Then make image
       
@@ -125,7 +125,18 @@ Devin - Monkeys can now attack the first balloon in their range
       - Monkeys now shoot arrows from their location that travel to the target balloon dealing damage upon contact
       - Reorganized tabs and moved movement methods from main to the respective classes to clean up the main tab
       
+James - Finished with path aesthetics
+      - Did aforementioned setup
+      - Had to adjust rotating angle (using asin()) and account for flipped y-coordinate plane
+      - Now will begin work on having path indicate forbidden areas for monkeys
+      
 June 3, 2019
+James - Paths now indicate where not to place monkeys
+      - Once path imaging was figured out this step was easy.
+      - Simply make a rectangle (with larger width to account for the zone size and same length to surround each path segment)
+      - Then color it red
+      - All of this happens when monkey it being dragged
+
 Devin - Made monkey attacking smoother
       - Worked on ballon taking damage and popping and list manipulation
    
