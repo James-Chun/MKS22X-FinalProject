@@ -146,4 +146,9 @@ Devin - Added 15 waves of balloons and a play button to send these balloons once
       - smoothed out monkey attack even more
       - added a speed up button from 2x-4x the speed affecting both monkeys and balloons
       - made the range display of the monkey turn red when is is dragged from the shop over the path signaling that the monkey cannot be         placed there
+      - added a money and health system 
+            - each pop gives one dollar
+            - player cannot place down towers if they do not have the money
+            - health is deducted based on how many layers the balloon still has
+            - exits when health reaches zero
       
