@@ -115,7 +115,7 @@ void draw() {
     float dy = targetY - y;
     y += dy * easing;
     monkeys.get(0).display(mouseX, mouseY);
-    if (distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) < 50) {
+    if (money < 200 || distanceFromPointToLine(p.getRandPoints(), firstXBoundary(p.getRandPoints(), (int)mouseX), mouseX, mouseY) < 50) {
       monkeys.get(0).rangeDisplay(mouseX, mouseY, "red");
     } else {
       monkeys.get(0).rangeDisplay(mouseX, mouseY, "clear");
