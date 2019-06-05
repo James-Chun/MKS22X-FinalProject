@@ -151,4 +151,6 @@ Devin - Added 15 waves of balloons and a play button to send these balloons once
             - player cannot place down towers if they do not have the money
             - health is deducted based on how many layers the balloon still has
             - exits when health reaches zero
+      - added a sorting system that allows for first targetting but is very taxing on the system to run
+      
       
